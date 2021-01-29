@@ -5,4 +5,5 @@ This is testing who can write to the board. Write your name below.
 - Austin Harvey
 - Andrew Hall
 - Damion Owens
-- Andrew Hall
+- Christopher McKay
+- Matthew Alvidrez
