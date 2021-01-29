@@ -1,6 +1,5 @@
 C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\ShopBot.exe
 C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\ShopBot.deps.json
 C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\ShopBot.runtimeconfig.json
@@ -75,3 +74,8 @@ C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedSti
 C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.Design.dll
 C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.Design.dll
+C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\obj\Debug\netcoreapp3.1\ShopBot.csproj.CoreCompileInputs.cache
+C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\obj\Debug\netcoreapp3.1\ShopBot.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\tomed\Desktop\School\Winter 2021\CSC-405-002 (Senior Capstone I)\RedStickTech\ShopBot\ShopBot\obj\Debug\netcoreapp3.1\scopedcss\bundle\ShopBot.styles.css
