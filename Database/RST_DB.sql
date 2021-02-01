@@ -55,5 +55,33 @@ create table [user_payment_info] (
 	Expir_date date not null,
 	CVC int not null
 	);
-*/
+
+
+alter table user_login_info add verify varchar(50) not null;
+
+alter table active_schedules add ScheduleIDN int not null;
+
+alter table active_schedules add Archived Bit default 0;
+
+alter table active_schedules add Is_Recurring Bit default 0;
+
+alter table active_schedules add Frequency int default 0;
+
+alter table active_schedules add NeedWant Bit default 0;
+
+alter table active_schedules add PriceLimit int;
+
+alter table active_schedules add ExpDate date;
+
+alter table active_schedules add CurrentPrice float not null;
+
+alter table active_schedules alter column PriceLimit float;
+
+alter table admin_info drop column Admin_passwd;
+
+alter table admin_info add Admin_salt varchar(60) not null;
+
+alter table user_login_info drop column Passwd;*/
+
+
 
