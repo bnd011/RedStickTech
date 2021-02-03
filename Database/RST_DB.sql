@@ -16,12 +16,12 @@ create table [schedules] (
 	archived bit default 0,
 	url	varchar(200) not null,
 	is_recurring bit default 0,
-    frequency integer default 0,
-    want_option integer default -1,
-    price_limit integer,
-    expire_date date,
-    current_price float not null,
-    item varchar(200) not null,
+    	frequency integer default 0,
+    	want_option integer default -1,
+    	price_limit integer,
+    	expire_date date,
+    	current_price float not null,
+    	item varchar(200) not null,
 	primary key (schedule_IDN)
 	);
     
