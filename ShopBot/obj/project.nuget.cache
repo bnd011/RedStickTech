@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SgF5JYk08wSZ9+ZeCgODpjW6c2GMfhJXYtC0bHtLlfMo7AV51Bu8yOYdyBoWo9b+iOF9RQ/FDO3IW//U5hEKAw==",
+  "dgSpecHash": "lDlJ8i4M4sNP3Njwyussb6u6vEfjAtGF8YzSse4FUlEXmUC/DLNOc5b1i4jh+qwiuVsNImWUwiD6g7sWTpJDnQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\harve\\Documents\\Computer Science Work\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj",
   "expectedPackageFiles": [
@@ -64,6 +64,7 @@
     "C:\\Users\\harve\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\harve\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\harve\\.nuget\\packages\\mimekit\\2.10.1\\mimekit.2.10.1.nupkg.sha512",
+    "C:\\Users\\harve\\.nuget\\packages\\netcore.mailkit\\2.0.3\\netcore.mailkit.2.0.3.nupkg.sha512",
     "C:\\Users\\harve\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\harve\\.nuget\\packages\\portable.bouncycastle\\1.8.8\\portable.bouncycastle.1.8.8.nupkg.sha512",
     "C:\\Users\\harve\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",

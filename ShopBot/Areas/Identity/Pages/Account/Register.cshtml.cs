@@ -69,6 +69,10 @@ namespace ShopBot.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
+        /*public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        {
+            //return View();
+        } */
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
@@ -84,6 +88,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = code }, Request.Scheme);
+
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",

@@ -1004,6 +1004,19 @@
           "lib/netstandard2.1/MimeKit.dll": {}
         }
       },
+      "NETCore.MailKit/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "MailKit": "2.6.0",
+          "Microsoft.Extensions.DependencyInjection": "3.1.4"
+        },
+        "compile": {
+          "lib/netstandard2.1/NETCore.MailKit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/NETCore.MailKit.dll": {}
+        }
+      },
       "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
@@ -3970,6 +3983,18 @@
         "lib/netstandard2.1/MimeKit.xml",
         "mimekit.2.10.1.nupkg.sha512",
         "mimekit.nuspec"
+      ]
+    },
+    "NETCore.MailKit/2.0.3": {
+      "sha512": "5V4N3S9soQLBemj2+u4TvIbSfJP1Hs/iV7TCJuBc913lD9OoZ+7Lne4eA90F292OLZ2iBQJzXttAvfYgIYWnFg==",
+      "type": "package",
+      "path": "netcore.mailkit/2.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/NETCore.MailKit.dll",
+        "netcore.mailkit.2.0.3.nupkg.sha512",
+        "netcore.mailkit.nuspec"
       ]
     },
     "Newtonsoft.Json/11.0.2": {
@@ -7729,7 +7754,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.2",
       "Microsoft.Extensions.Identity.Core >= 5.0.2",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.1"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.1",
+      "NETCore.MailKit >= 2.0.3"
     ]
   },
   "packageFolders": {
@@ -7802,6 +7828,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[5.0.1, )"
+          },
+          "NETCore.MailKit": {
+            "target": "Package",
+            "version": "[2.0.3, )"
           }
         },
         "imports": [

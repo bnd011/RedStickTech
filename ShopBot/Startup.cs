@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NETCore.MailKit.Extensions;
+using NETCore.MailKit.Infrastructure.Internal;
 using ShopBot.Data;
 using System;
 using System.Collections.Generic;
@@ -31,12 +33,19 @@ namespace ShopBot
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddIdentity<ApplicationDbContext, IdentityRole>().AddDefaultTokenProviders();
+            //services.AddIdentity<ApplicationDbContext, IdentityRole>(config => config.SignIn.RequireConfirmedEmail = true).AddDefaultTokenProviders();
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-            services.AddRazorPages();
 
+          /*  var mailKitOptions = Configuration.GetSection("Email").Get<MailKitOptions>();
+
+            services.AddMailKit(config =>
+            {
+                var options = new MailKitOptions();
+                config.UseMailKit(mailKitOptions); });
+          */
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

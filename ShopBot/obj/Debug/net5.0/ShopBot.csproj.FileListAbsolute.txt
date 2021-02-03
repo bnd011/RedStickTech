@@ -248,3 +248,7 @@ C:\Users\harve\Documents\Computer Science Work\Capstone\RedStickTech\ShopBot\obj
 C:\Users\harve\Documents\Computer Science Work\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\harve\Documents\Computer Science Work\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\harve\Documents\Computer Science Work\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs
+C:\Users\harve\Documents\Computer Science Work\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\MailKit.dll
+C:\Users\harve\Documents\Computer Science Work\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\MimeKit.dll
+C:\Users\harve\Documents\Computer Science Work\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\NETCore.MailKit.dll
+C:\Users\harve\Documents\Computer Science Work\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\BouncyCastle.Crypto.dll
