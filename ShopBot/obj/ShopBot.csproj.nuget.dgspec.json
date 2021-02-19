@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\harve\\Documents\\Computer Science Work\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj": {}
+    "C:\\Users\\tomed\\Desktop\\School\\Winter 2021\\CSC-405-002 (Senior Capstone I)\\RedStickTech\\ShopBot\\ShopBot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\harve\\Documents\\Computer Science Work\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj": {
+    "C:\\Users\\tomed\\Desktop\\School\\Winter 2021\\CSC-405-002 (Senior Capstone I)\\RedStickTech\\ShopBot\\ShopBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\harve\\Documents\\Computer Science Work\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj",
+        "projectUniqueName": "C:\\Users\\tomed\\Desktop\\School\\Winter 2021\\CSC-405-002 (Senior Capstone I)\\RedStickTech\\ShopBot\\ShopBot.csproj",
         "projectName": "ShopBot",
-        "projectPath": "C:\\Users\\harve\\Documents\\Computer Science Work\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj",
-        "packagesPath": "C:\\Users\\harve\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\harve\\Documents\\Computer Science Work\\Capstone\\RedStickTech\\ShopBot\\obj\\",
+        "projectPath": "C:\\Users\\tomed\\Desktop\\School\\Winter 2021\\CSC-405-002 (Senior Capstone I)\\RedStickTech\\ShopBot\\ShopBot.csproj",
+        "packagesPath": "C:\\Users\\tomed\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomed\\Desktop\\School\\Winter 2021\\CSC-405-002 (Senior Capstone I)\\RedStickTech\\ShopBot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\harve\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tomed\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,35 +46,51 @@
             },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
             },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[5.0.2, )"
             },
             "NETCore.MailKit": {
               "target": "Package",
               "version": "[2.0.3, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[5.0.0-alpha.2, )"
             }
           },
           "imports": [
@@ -95,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

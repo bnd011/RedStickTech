@@ -40,3 +40,4 @@ create table admin_info (
 	primary key (Admin_email)
 	);
 
+alter table user_login_info add column emailVerified bool;

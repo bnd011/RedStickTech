@@ -16,8 +16,8 @@ namespace ShopBot.Areas.Identity
         {
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<AuthDbContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("AuthDbContextConnection")));
+                    options.UseMySql(
+                        context.Configuration.GetConnectionString("AuthDbContextConnection"), new MySqlServerVersion(new Version(8, 0, 21))));
 
                 //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                    // .AddEntityFrameworkStores<AuthDbContext>();

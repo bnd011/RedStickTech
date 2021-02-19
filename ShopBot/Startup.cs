@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace ShopBot
 {
@@ -30,8 +31,8 @@ namespace ShopBot
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySql(
+                    Configuration.GetConnectionString("DefaultConnection"), new MySqlServerVersion(new Version(8, 0, 21))));
             services.AddDatabaseDeveloperPageExceptionFilter();
             //services.AddIdentity<ApplicationDbContext, IdentityRole>(config => config.SignIn.RequireConfirmedEmail = true).AddDefaultTokenProviders();
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
