@@ -41,5 +41,3 @@ create table admin_info (
 	);
 	
 alter table user_login_info add column emailVerified bool;
-
-alter table user_login_info add column emailVerified bool;
