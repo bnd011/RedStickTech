@@ -39,5 +39,7 @@ create table admin_info (
 	Admin_position	varchar(25)	not null,
 	primary key (Admin_email)
 	);
+	
+alter table user_login_info add column emailVerified bool;
 
 alter table user_login_info add column emailVerified bool;
