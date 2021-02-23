@@ -35,11 +35,5 @@ namespace ShopBot.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        /*public async Task<IActionResult> ConfirmEmail(string userId, string token)
-        {
-            if (userId == null || token == null)
-                return RedirectToAction("index", "home");
-            var user = await AspNetUserManager.FindIdByAsync(userId);
-        }*/
     }
 }

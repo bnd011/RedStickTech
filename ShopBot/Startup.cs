@@ -14,6 +14,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentEmail.Smtp;
+using FluentEmail.Core;
+using System.Net.Mail;
 
 namespace ShopBot
 {
@@ -38,13 +41,16 @@ namespace ShopBot
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
-          /*  var mailKitOptions = Configuration.GetSection("Email").Get<MailKitOptions>();
 
-            services.AddMailKit(config =>
+            var sender = new SmtpSender(() => new SmtpClient("localhost")
             {
-                var options = new MailKitOptions();
-                config.UseMailKit(mailKitOptions); });
-          */
+                EnableSsl = false,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Port = 25
+            });
+
+            Email.DefaultSender = sender;
+
             services.AddRazorPages();
         }
 
