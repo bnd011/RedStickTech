@@ -62,6 +62,13 @@ namespace ShopBot.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name = "I verify that I am over the age of 13")]
+            [Range(typeof(bool), "true", "true", ErrorMessage = "This box must be checked")]
+
+            public Boolean AgeVerification { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
