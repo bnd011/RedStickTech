@@ -65,8 +65,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
             [Required]
             [Display(Name = "I verify that I am over the age of 13")]
-            [Range(typeof(bool), "true", "true", ErrorMessage = "This box must be checked")]
-
+            [VerifyChecked(ErrorMessage = "This box must be checked")]
             public Boolean AgeVerification { get; set; }
 
         }
@@ -95,7 +94,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var confirmationLink = Url.Action("ConfirmEmail", "/Identity/Account", new { userId = user.Id, token = code }, Request.Scheme);
+                    var confirmationLink = Url.Action("ConfirmEmail", "/Identity", new { userId = user.Id, token = code }, Request.Scheme);
 
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
@@ -135,5 +134,13 @@ namespace ShopBot.Areas.Identity.Pages.Account
         }
 
 
+    }
+
+    internal class VerifyCheckedAttribute : ValidationAttribute
+    {
+        public override bool IsValid(object value)
+        {
+            return value is bool && (bool)value;
+        }
     }
 }
