@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using FluentEmail.Core;
 
 
 namespace ShopBot.Areas.Identity.Pages.Account
@@ -61,6 +62,12 @@ namespace ShopBot.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name = "I verify that I am over the age of 13")]
+            [VerifyChecked(ErrorMessage = "This box must be checked")]
+            public Boolean AgeVerification { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -87,7 +94,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = code }, Request.Scheme);
+                    var confirmationLink = Url.Action("ConfirmEmail", "/Identity", new { userId = user.Id, token = code }, Request.Scheme);
 
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
@@ -95,9 +102,16 @@ namespace ShopBot.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
+                    var email = await Email 
+                        .From("service@shopbot.com")
+                        .To(Input.Email)
+                        .Subject("Confirm your shopbot account")
+                        .Body("Thank you registering a ShopBot account. Please use the link below to confirm your account: \n" + confirmationLink)
+                        .SendAsync();
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                       // $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -120,5 +134,13 @@ namespace ShopBot.Areas.Identity.Pages.Account
         }
 
 
+    }
+
+    internal class VerifyCheckedAttribute : ValidationAttribute
+    {
+        public override bool IsValid(object value)
+        {
+            return value is bool && (bool)value;
+        }
     }
 }
