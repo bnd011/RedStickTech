@@ -64,7 +64,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
 
             [Required]
-            [Display(Name = "I verify that I am over the age of 13")]
+            [Display(Name = "I verify that I am over the age of 18")]
             [VerifyChecked(ErrorMessage = "This box must be checked")]
             public Boolean AgeVerification { get; set; }
 

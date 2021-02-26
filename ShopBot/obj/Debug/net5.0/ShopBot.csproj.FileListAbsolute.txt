@@ -424,3 +424,4 @@ C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\ref\Shop
 C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\ShopBot.pdb
 C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\ShopBot.genruntimeconfig.cache
 C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Areas\Identity\Pages\ConfirmEmail.cshtml.g.cs
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Views\Home\Schedule.cshtml.g.cs
