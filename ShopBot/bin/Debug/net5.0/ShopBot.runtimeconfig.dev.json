@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\harve\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\harve\\.nuget\\packages"
+    ]
+  }
+}

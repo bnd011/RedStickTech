@@ -6,4 +6,11 @@ This is testing who can write to the board. Write your name below.
 - Andrew Hall
 - Damion Owens
 - Christopher McKay
-- Matthew Alvidrez
+- Matthew John Alvidrez
+
+# ShopBot
+ShopBot is an application that helps users better access online stores
+in a centeralized area where they are able to make purchases and set up
+buying schedules.
+
+
