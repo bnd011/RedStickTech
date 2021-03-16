@@ -52,22 +52,73 @@ namespace ShopBot.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
+
+            private string salt;
+            private string Salt
+            {
+                get
+                {
+                    return salt;
+                }
+                set
+                {
+                    salt = GetSalt();
+                }
+            }
+
+            private string password;
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
-            public string Password { get; set; }
+            public string Password
+            {
+                get
+                {
+                    return password;
+                }
+                set
+                {
+                    string prehash = value + Salt;
+                    password = GetHash(prehash);
+                    Console.WriteLine(password);
+                }
+            }
 
+            private string confirmPassword;
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-            public string ConfirmPassword { get; set; }
+            public string ConfirmPassword
+            {
+                get
+                {
+                    return confirmPassword;
+                }
+                set
+                {
+                    string prehash = value + Salt;
+                    confirmPassword = GetHash(prehash);
+                    Console.WriteLine(confirmPassword);
+                }
+            }
 
             [Required]
             [Display(Name = "I verify that I am over the age of 18")]
             [VerifyChecked(ErrorMessage = "This box must be checked")]
             public Boolean AgeVerification { get; set; }
 
+            private static string GetSalt()
+            {
+                //implement Salt 64
+                return "RedStickTech";
+            }
+
+            private static string GetHash(string input)
+            {
+                //implement RSA11
+                return input;
+            }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
