@@ -48,10 +48,31 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
             [Required]
             [DataType(DataType.Password)]
-            public string Password { get; set; }
+            public string Password {
+                get
+                {
+                    return Password;
+                }
+                set {
+                    string prehash = Password + getSalt();
+                    Password = getHash(prehash);
+                } 
+            }
 
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
+
+            private string getSalt()
+            {
+                //implement Salt 64
+                return "RedStickTech";
+            }
+
+            private string getHash(string input)
+            {
+                //implement RSA11
+                return input;
+            }
         }
 
         public async Task OnGetAsync(string returnUrl = null)

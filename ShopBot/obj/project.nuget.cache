@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5nPqrkE0x6UK/Gjt9A6SY8K2+5+Sa4DWRvKCCa0L6jcZSh8kBuwQF0O6M8iRz2AYdIZgg2PzRSNSrBuykk8XGw==",
+  "dgSpecHash": "hcomVtN3l7+x4oT/q8rRwnbcrN7HjWuowjBwF8yovbmbHVQeoY3LS7M0ISZfUQwBRS9oNs6YN8VPIXzgZ8kZQA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj",
   "expectedPackageFiles": [
@@ -66,11 +66,8 @@
     "C:\\Users\\Hall\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\mimekit\\2.10.1\\mimekit.2.10.1.nupkg.sha512",
-    "C:\\Users\\Hall\\.nuget\\packages\\mysqlconnector\\1.0.1\\mysqlconnector.1.0.1.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\netcore.mailkit\\2.0.3\\netcore.mailkit.2.0.3.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
-    "C:\\Users\\Hall\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\5.0.0-alpha.1\\pomelo.entityframeworkcore.mysql.5.0.0-alpha.1.nupkg.sha512",
-    "C:\\Users\\Hall\\.nuget\\packages\\pomelo.jsonobject\\2.2.1\\pomelo.jsonobject.2.2.1.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\portable.bouncycastle\\1.8.8\\portable.bouncycastle.1.8.8.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
