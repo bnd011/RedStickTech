@@ -1,25 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj": {}
+    "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj": {
+    "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj",
+        "projectUniqueName": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj",
         "projectName": "ShopBot",
-        "projectPath": "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj",
-        "packagesPath": "C:\\Users\\harve\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\obj\\",
+        "projectPath": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj",
+        "packagesPath": "C:\\Users\\Hall\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+<<<<<<< HEAD
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\harve\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Hall\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -86,7 +97,11 @@
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
+<<<<<<< HEAD
               "version": "[5.0.0-alpha.2, )"
+=======
+              "version": "[5.0.0-alpha.1, )"
+>>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
             }
           },
           "imports": [
