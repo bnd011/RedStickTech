@@ -425,3 +425,5 @@ C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\ShopBot.
 C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\ShopBot.genruntimeconfig.cache
 C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Areas\Identity\Pages\ConfirmEmail.cshtml.g.cs
 C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Views\Home\Schedule.cshtml.g.cs
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\MySqlConnector.dll
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll

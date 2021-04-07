@@ -103,7 +103,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
                     var email = await Email 
-                        .From("service@shopbot.com")
+                        .From("redsticktechshopbot@gmail.com")
                         .To(Input.Email)
                         .Subject("Confirm your shopbot account")
                         .Body("Thank you registering a ShopBot account. Please use the link below to confirm your account: \n" + confirmationLink)

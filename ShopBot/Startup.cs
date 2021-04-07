@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using FluentEmail.Smtp;
 using FluentEmail.Core;
 using System.Net.Mail;
+using System.Net;
 
 namespace ShopBot
 {
@@ -42,13 +43,16 @@ namespace ShopBot
             services.AddControllersWithViews();
 
 
-            var sender = new SmtpSender(() => new SmtpClient("localhost")
+            var sender = new SmtpSender(() => new SmtpClient("email-smtp.us-east-2.amazonaws.com")
             {
-                EnableSsl = false,
+                EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                Port = 25
-            });
+                Port = 587,
+                Credentials = new NetworkCredential("AKIAUMK7GTAQPQJHZA4F", "BBniWgOtYSiMdHI7hmkjt0CFtz9pukFnMHC2pxWEMN5m")
 
+
+            }) ;
+            
             Email.DefaultSender = sender;
 
             services.AddRazorPages();
