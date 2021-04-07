@@ -1028,11 +1028,7 @@
           "lib/netstandard2.1/MimeKit.dll": {}
         }
       },
-<<<<<<< HEAD
       "MySqlConnector/1.1.0": {
-=======
-      "MySqlConnector/1.0.1": {
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
         "type": "package",
         "compile": {
           "lib/net5.0/MySqlConnector.dll": {}
@@ -1063,20 +1059,11 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-<<<<<<< HEAD
       "Pomelo.EntityFrameworkCore.MySql/5.0.0-alpha.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "5.0.0",
           "MySqlConnector": "1.1.0"
-=======
-      "Pomelo.EntityFrameworkCore.MySql/5.0.0-alpha.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.0-rc.2.20475.6",
-          "MySqlConnector": "1.0.1",
-          "Pomelo.JsonObject": "2.2.1"
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
         },
         "compile": {
           "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll": {}
@@ -1085,22 +1072,6 @@
           "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll": {}
         }
       },
-<<<<<<< HEAD
-=======
-      "Pomelo.JsonObject/2.2.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "compile": {
-          "lib/netstandard2.0/Pomelo.JsonObject.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Pomelo.JsonObject.dll": {}
-        }
-      },
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
       "Portable.BouncyCastle/1.8.8": {
         "type": "package",
         "compile": {
@@ -4086,17 +4057,10 @@
         "mimekit.nuspec"
       ]
     },
-<<<<<<< HEAD
     "MySqlConnector/1.1.0": {
       "sha512": "RQPR2vkQjSiyGH2mV17K4+gDcgI8hidxgD2qli3OcRupvqpQjoL6S35M3ZjIM6CXC0TgImvJo3HA/fLSOG+oBA==",
       "type": "package",
       "path": "mysqlconnector/1.1.0",
-=======
-    "MySqlConnector/1.0.1": {
-      "sha512": "bnQk6joP7z0k1aIk13BjrZXIakN+UobXjO8EMh/Y+L6vZ6ul9cJ8RXkD9tia86ksgFs9GqmvPgX7ILx7mOpwNQ==",
-      "type": "package",
-      "path": "mysqlconnector/1.0.1",
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4110,13 +4074,8 @@
         "lib/net5.0/MySqlConnector.xml",
         "lib/netcoreapp2.1/MySqlConnector.dll",
         "lib/netcoreapp2.1/MySqlConnector.xml",
-<<<<<<< HEAD
         "lib/netcoreapp3.1/MySqlConnector.dll",
         "lib/netcoreapp3.1/MySqlConnector.xml",
-=======
-        "lib/netcoreapp3.0/MySqlConnector.dll",
-        "lib/netcoreapp3.0/MySqlConnector.xml",
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
         "lib/netstandard1.3/MySqlConnector.dll",
         "lib/netstandard1.3/MySqlConnector.xml",
         "lib/netstandard2.0/MySqlConnector.dll",
@@ -4124,11 +4083,7 @@
         "lib/netstandard2.1/MySqlConnector.dll",
         "lib/netstandard2.1/MySqlConnector.xml",
         "logo.png",
-<<<<<<< HEAD
         "mysqlconnector.1.1.0.nupkg.sha512",
-=======
-        "mysqlconnector.1.0.1.nupkg.sha512",
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
         "mysqlconnector.nuspec"
       ]
     },
@@ -4150,6 +4105,7 @@
       "path": "newtonsoft.json/11.0.2",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -4173,46 +4129,20 @@
         "newtonsoft.json.nuspec"
       ]
     },
-<<<<<<< HEAD
     "Pomelo.EntityFrameworkCore.MySql/5.0.0-alpha.2": {
       "sha512": "g2+otNSXHxzmWUJI7+KfoL9C35V8BAKC1fqfriHNNghMQiwrUkK+xaN+3w5r5+YUKA1qfiJH6+Wwc+Kkcsr3Og==",
       "type": "package",
       "path": "pomelo.entityframeworkcore.mysql/5.0.0-alpha.2",
-=======
-    "Pomelo.EntityFrameworkCore.MySql/5.0.0-alpha.1": {
-      "sha512": "+7o8EwczCPeTFdzMfj0ZyUTzY/idKLxKCBo9Z3l0a5Wc2IvnL3y1bWUbMuYNTc7viLSZfAZHFj92gbRowvZ4Mw==",
-      "type": "package",
-      "path": "pomelo.entityframeworkcore.mysql/5.0.0-alpha.1",
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll",
         "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.xml",
-<<<<<<< HEAD
         "pomelo.entityframeworkcore.mysql.5.0.0-alpha.2.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
-=======
-        "pomelo.entityframeworkcore.mysql.5.0.0-alpha.1.nupkg.sha512",
-        "pomelo.entityframeworkcore.mysql.nuspec"
-      ]
-    },
-    "Pomelo.JsonObject/2.2.1": {
-      "sha512": "VHPk3Yf7nDt+tZMC1M4oAoc3bgTYsOrap3VTjn//vd91b/nfquAbAeq1k0Lf7mPt8J7imLd9Pbzm50uB5euuZA==",
-      "type": "package",
-      "path": "pomelo.jsonobject/2.2.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Pomelo.JsonObject.dll",
-        "pomelo.jsonobject.2.2.1.nupkg.sha512",
-        "pomelo.jsonobject.nuspec"
-      ]
-    },
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
     "Portable.BouncyCastle/1.8.8": {
       "sha512": "1rxdf8NfyAxLlqIEciCl/yNhmz1YiLkmp6rrF8p3/NVmyHHzPWLx8djtDvSAwhPLg64BXvsRcM3+5bP1HAUdYg==",
       "type": "package",
@@ -7944,50 +7874,29 @@
       "Microsoft.Extensions.Identity.Core >= 5.0.2",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "NETCore.MailKit >= 2.0.3",
-<<<<<<< HEAD
       "Pomelo.EntityFrameworkCore.MySql >= 5.0.0-alpha.2"
     ]
   },
   "packageFolders": {
     "C:\\Users\\harve\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
-      "Pomelo.EntityFrameworkCore.MySql >= 5.0.0-alpha.1"
-    ]
-  },
-  "packageFolders": {
-    "C:\\Users\\Hall\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj",
+      "projectUniqueName": "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj",
       "projectName": "ShopBot",
-      "projectPath": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj",
-      "packagesPath": "C:\\Users\\Hall\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\obj\\",
+      "projectPath": "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj",
+      "packagesPath": "C:\\Users\\harve\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-<<<<<<< HEAD
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\harve\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-=======
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
-      "configFilePaths": [
-        "C:\\Users\\Hall\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -8054,11 +7963,7 @@
           },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
-<<<<<<< HEAD
             "version": "[5.0.0-alpha.2, )"
-=======
-            "version": "[5.0.0-alpha.1, )"
->>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
           }
         },
         "imports": [
@@ -8082,5 +7987,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
