@@ -62,6 +62,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 }
                 set
                 {
+                    Console.WriteLine("bees are in my teeth");
                     salt = GetSalt();
                 }
             }
@@ -110,8 +111,18 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
             private static string GetSalt()
             {
+                Random r = new Random();
+                String salt = "";
+                for(int i=0; i<64; i++)
+                {
+                    char curr = 'a';
+                    int rand_char_offset = r.Next(0, 26);
+                    curr += (char)rand_char_offset;
+                    salt.Append(curr);
+                }
+                Console.WriteLine(salt);
                 //implement Salt 64
-                return "RedStickTech";
+                return salt;
             }
 
             private static string GetHash(string input)
@@ -138,8 +149,11 @@ namespace ShopBot.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                Console.WriteLine("############# Async command stub #############");
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                var test = Input.Password;
+                Console.WriteLine("EGGGGGGGGGs: ",test);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
