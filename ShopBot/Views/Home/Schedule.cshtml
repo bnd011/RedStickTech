@@ -1,7 +1,15 @@
-﻿@{ 
-	ViewData["Title"] = "Shedules";
+﻿@model ShopBot.Models.ScheduleModel
+@{
+    ViewData["Title"] = "Shedules";
+    if (Model.Stuff == "It is in")
+    {
+        ViewData["Epic"] = "It is in";
+    }
+
 }
+
+
 <h1>@ViewData["Title"]</h1>
-
-
-<p>Your schedules that you make will be displayed here and you will be able to see, edit, and display them.</p>
+<div>
+<p>@ViewData["Epic"]</p>
+</div>

@@ -40,7 +40,6 @@ namespace WalmartAutomation
             var click2 = webDriver.FindElement(By.XPath(XpathStr));
             await Task.Delay(2000);
             click2.Click();
-            webDriver.Quit();
         }
 
     }
