@@ -54,17 +54,17 @@ namespace ShopBot.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
 
-            private string salt { get; set; }
+            protected internal string _salt { get; set; }
             private string Salt
             {
                 get
                 {
-                    return salt;
+                    return _salt;
                 }
                 set
                 {
-                    Console.WriteLine("bees are in my teeth");
-                    salt = GetSalt();
+                    Console.WriteLine("Trust no man unless you have eaten much salt with him");
+                    _salt = value;
                 }
             }
             private byte[] Hash { get; set; }
@@ -83,6 +83,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 set
                 {
                     password = value;
+                    Salt = GetSalt();
                     Hash = GetHash(password + Salt);
                     Console.WriteLine("Password: " + password);
                     Console.WriteLine("Salt: " + Salt);
@@ -95,7 +96,13 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     //first.CommandText = "INSERT INTO `RST_DB`.`login`(`user_email`, `pass`) VALUES('dummy4@email.com', 'passsword'); ";
                     first.CommandText = GetLoginQueary();
                     connect.Open();
-                    string results = (string)first.ExecuteScalar();
+                    try
+                    {
+                        string results = (string)first.ExecuteScalar();
+                    }catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
                     connect.Close();
                 }
             }
@@ -123,18 +130,21 @@ namespace ShopBot.Areas.Identity.Pages.Account
             [VerifyChecked(ErrorMessage = "This box must be checked")]
             public Boolean AgeVerification { get; set; }
 
+            // Creates a 64 digit salt            
             private static string GetSalt()
             {
                 Random r = new Random();
                 String salt = "";
-                for(int i=0; i<64; i++)
+                for(int i=0; i<5; i++)
                 {
                     char curr = 'a';
                     int rand_char_offset = r.Next(0, 26);
                     curr += (char)rand_char_offset;
-                    salt.Append(curr);
+                    salt += curr;
+                    //Console.WriteLine("RCO: " + rand_char_offset);
+                    //Console.WriteLine("Current Char: " + curr);
+                    //Console.WriteLine("i: " + i + " Salt* " + salt);
                 }
-                Console.WriteLine(salt);
                 //implement Salt 64
                 return salt;
             }
@@ -263,7 +273,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 var test = Input.Password;
-                Console.WriteLine("EGGGGGGGGGs: ",test);
+                Console.WriteLine("EGGGGGGGGGs: "+test);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
