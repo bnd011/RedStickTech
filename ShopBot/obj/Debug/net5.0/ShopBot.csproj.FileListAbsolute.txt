@@ -598,3 +598,12 @@ C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\obj\Debug\net5.0\ShopBot.dll
 C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\obj\Debug\net5.0\ref\ShopBot.dll
 C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\obj\Debug\net5.0\ShopBot.pdb
 C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\obj\Debug\net5.0\ShopBot.genruntimeconfig.cache
+C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\bin\Debug\net5.0\Google.Protobuf.dll
+C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\bin\Debug\net5.0\K4os.Compression.LZ4.dll
+C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\bin\Debug\net5.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\bin\Debug\net5.0\K4os.Hash.xxHash.dll
+C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\bin\Debug\net5.0\MySql.Data.dll
+C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\bin\Debug\net5.0\Ubiety.Dns.Core.dll
+C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\bin\Debug\net5.0\Zstandard.Net.dll
+C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\bin\Debug\net5.0\Renci.SshNet.dll
+C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\bin\Debug\net5.0\SshNet.Security.Cryptography.dll

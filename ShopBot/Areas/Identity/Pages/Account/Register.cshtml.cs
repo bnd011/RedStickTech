@@ -67,6 +67,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     salt = GetSalt();
                 }
             }
+            private byte[] Hash { get; set; }
 
             private string password;
             [Required]
@@ -81,15 +82,16 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 }
                 set
                 {
-                    string prehash = value + Salt;
-                    password = GetHash(prehash);
+                    password = value;
+                    Hash = GetHash(password + Salt);
                     Console.WriteLine("Animal Crackers in my Soup!");
                     Console.WriteLine(password);
                     // to user_login_info => username , Salt, password
                     string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
                     MySqlConnection connect = new MySqlConnection(ConnectionStr);
                     MySqlCommand first = connect.CreateCommand();
-                    first.CommandText = "INSERT INTO `RST_DB`.`login`(`user_email`, `pass`) VALUES('dummy3@email.com', 'passsword'); ";
+                    //first.CommandText = "INSERT INTO `RST_DB`.`login`(`user_email`, `pass`) VALUES('dummy4@email.com', 'passsword'); ";
+                    first.CommandText = GetLoginQueary();
                     connect.Open();
                     string results = (string)first.ExecuteScalar();
                 }
@@ -107,8 +109,8 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 }
                 set
                 {
-                    string prehash = value + Salt;
-                    confirmPassword = GetHash(prehash);
+
+                    confirmPassword = value;
                     Console.WriteLine(confirmPassword);
                 }
             }
@@ -135,7 +137,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
             }
 
             //https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rsacryptoserviceprovider?view=net-5.0
-            private static string GetHash(string input)
+            private static byte[] GetHash(string input)
             {
                 try
                 {
@@ -156,16 +158,18 @@ namespace ShopBot.Areas.Identity.Pages.Account
                         //and a boolean flag specifying no OAEP padding.
                         encryptedData = RSAEncrypt(dataToEncrypt, RSA.ExportParameters(false), false);
                         //https://stackoverflow.com/questions/1003275/how-to-convert-utf-8-byte-to-string
-                        string encryptedString = Encoding.UTF8.GetString(encryptedData);
-                        return encryptedString;
+                        //string encryptedString = Encoding.UTF8.GetString(encryptedData);
+                        //return encryptedString;
+                        return encryptedData;
                     }
                 }
                 catch (ArgumentNullException)
                 {
                     //Catch this exception in case the encryption did
                     //not succeed.
+                    UnicodeEncoding ByteConverter = new UnicodeEncoding();
                     Console.WriteLine("Encryption failed.");
-                    return "default";
+                    return ByteConverter.GetBytes("default");
                 }
             }
 
@@ -228,6 +232,11 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 }
             }
             
+            private string GetLoginQueary()
+            {
+                String queary = "INSERT INTO `RST_DB`.`user_login_info`(`user_email`, `verify`, `salt`) VALUES('Beans@gmail.com', '[1001001]', 'SaltDeezNuts'); ";
+                return queary;
+            }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
