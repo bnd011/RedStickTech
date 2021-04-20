@@ -96,6 +96,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     first.CommandText = GetLoginQueary();
                     connect.Open();
                     string results = (string)first.ExecuteScalar();
+                    connect.Close();
                 }
             }
 
