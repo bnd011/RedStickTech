@@ -5294,11 +5294,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\owens\\Desktop\\Automation\\WalmartBuying\\WalmartBuying.csproj",
+      "projectUniqueName": "C:\\Users\\owens\\Desktop\\RedStickTech\\Automation\\WalmartBuying\\WalmartBuying.csproj",
       "projectName": "WalmartBuying",
-      "projectPath": "C:\\Users\\owens\\Desktop\\Automation\\WalmartBuying\\WalmartBuying.csproj",
+      "projectPath": "C:\\Users\\owens\\Desktop\\RedStickTech\\Automation\\WalmartBuying\\WalmartBuying.csproj",
       "packagesPath": "C:\\Users\\owens\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\owens\\Desktop\\Automation\\WalmartBuying\\obj\\",
+      "outputPath": "C:\\Users\\owens\\Desktop\\RedStickTech\\Automation\\WalmartBuying\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

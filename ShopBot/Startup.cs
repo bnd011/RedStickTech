@@ -18,7 +18,7 @@ using FluentEmail.Smtp;
 using FluentEmail.Core;
 using System.Net.Mail;
 using System.Net;
-
+using MySql.Data.MySqlClient;
 namespace ShopBot
 {
     public class Startup

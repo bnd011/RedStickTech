@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A2WDDwD9GjKfswjAuIPUwFX417lVkwk7qKQ/L/GKpo3ue01pNbIqD/tBkS6EYusm1SGOM2nO3oIm+NKHQ8d/BQ==",
+  "dgSpecHash": "ICx5/SGbNAwzQvv7nib67aAH7TNvutxrlwkm8AHT5J+XEMPg7hxNREICxOelkWLZtHce8VZdnBvSE+SsnITykg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\owens\\Desktop\\Automation\\WalmartBuying\\WalmartBuying.csproj",
+  "projectFilePath": "C:\\Users\\owens\\Desktop\\RedStickTech\\Automation\\WalmartBuying\\WalmartBuying.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\owens\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",
     "C:\\Users\\owens\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

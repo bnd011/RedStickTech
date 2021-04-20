@@ -1,8 +1,14 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
+<<<<<<< HEAD
       "C:\\Users\\mateo\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\mateo\\.nuget\\packages"
+=======
+      "C:\\Users\\owens\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\owens\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+>>>>>>> 3bd2568651f4ab401e106d7e3fa74be861a9a229
     ]
   }
 }

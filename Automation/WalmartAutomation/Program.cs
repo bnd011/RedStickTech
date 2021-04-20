@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using MySql.Data.MySqlClient;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Diagnostics;
@@ -12,8 +13,27 @@ namespace WalmartAutomation
             var webDriver = LaunchBrowser();
             try
             {
+                int n = 1;
                 var walmartautomation = new Interacting(webDriver);
-                await walmartautomation.FindItemAsync("Great Value Mild Ground Italian Sausage, 16 oz");
+                string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
+                string email = args[0];
+                MySqlConnection connect = new MySqlConnection(ConnectionStr);
+                MySqlCommand count = connect.CreateCommand();
+                count.CommandText = "SELECT COUNT(*) FROM RST_DB.schedules";
+                MySqlCommand first = connect.CreateCommand();
+                first.Parameters.AddWithValue("@email", email);
+                first.CommandText = "SELECT item  FROM RST_DB.schedules WHERE user_email = @email LIMIT 1;";
+                connect.Open();
+                await walmartautomation.FindItemAsync((string)first.ExecuteScalar());
+                while (n < (Int64)count.ExecuteScalar())
+                {
+                    MySqlCommand loop = connect.CreateCommand();
+                    loop.Parameters.AddWithValue("@email", email);
+                    loop.Parameters.AddWithValue("@num", n);
+                    loop.CommandText = "SELECT item  FROM RST_DB.schedules WHERE user_email = @email LIMIT @num,1;";
+                    await walmartautomation.FindItemAsync((string)loop.ExecuteScalar());
+                    n = n + 1;
+                }
             }
             catch (Exception ex)
             {
