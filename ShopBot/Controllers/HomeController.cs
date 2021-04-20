@@ -44,7 +44,6 @@ namespace ShopBot.Controllers
 
         public ActionResult MakeSchedule()
         {
-            ViewBag.Title = "Make a Schedule";
             return View();
         }
 

@@ -31,7 +31,6 @@ namespace ShopBot.Views.Home
 
         public void OnGet()
         {
-            
         }
     }
 }

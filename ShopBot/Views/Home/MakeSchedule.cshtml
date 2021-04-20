@@ -1,26 +1,35 @@
-﻿@page
+﻿
 @model ShopBot.Views.Home.MakeScheduleModel
 @{
-    ViewData["Title"] = "Make A Schedule";
+    ViewBag.Title = "Make A Schedule";
 }
-<h1>@ViewData["Title"]</h1>
+<h1>@ViewBag.Title</h1>
 
-<div>
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="Input.ItemName"></label>
-        <input asp-for="Input.ItemName" class="form-control" />
-        <span asp-validation-for="Input.ItemName" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Input.OrderDate"></label>
-        <input asp-for="Input.OrderDate" class="form-control" />
-        <span asp-validation-for="Input.OrderDate" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Input.Quantity"></label>
-        <input asp-for="Input.Quantity" class="form-control" />
-        <span asp-validation-for="Input.Quantity" class="text-danger"></span>
-    </div>
+<section>
+    <form id="account" method="post">
+        <hr />
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Input.ItemName"></label>
+            <input asp-for="Input.ItemName" class="form-control" />
+            <span asp-validation-for="Input.ItemName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.OrderDate"></label>
+            <input asp-for="Input.OrderDate" class="form-control" />
+            <span asp-validation-for="Input.OrderDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label asp-for="Input.Quantity">
+                    <input asp-for="Input.Quantity" />
+                    @Html.DisplayNameFor(m => m.Input.Quantity)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</section>
 
-</div>
