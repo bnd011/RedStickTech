@@ -46,12 +46,49 @@ namespace ShopBot.Areas.Identity.Pages.Account
             [EmailAddress]
             public string Email { get; set; }
 
+            private string salt;
+            private string Salt
+            {
+                get
+                {
+                    return salt;
+                }
+                set
+                {
+                    salt = GetSalt();
+                }
+            }
+
+            private string password;
             [Required]
             [DataType(DataType.Password)]
-            public string Password { get; set; }
+            public string Password {
+                get
+                {
+                    return password;
+                }
+                set 
+                {
+                    string prehash = value + Salt;
+                    password = GetHash(prehash);
+                    Console.WriteLine(password);
+                } 
+            }
 
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
+
+            private static string GetSalt()
+            {
+                //implement Salt 64
+                return "RedStickTech";
+            }
+
+            private static string GetHash(string input)
+            {
+                //implement RSA11
+                return input;
+            }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
