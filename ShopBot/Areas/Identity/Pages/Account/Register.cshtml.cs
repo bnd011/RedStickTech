@@ -67,7 +67,19 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     _salt = value;
                 }
             }
-            private byte[] Hash { get; set; }
+            protected internal String Strhash { get; set; }
+            protected internal byte[] Bhash { get; set; }
+            private byte[] Hash {
+                get
+                {
+                    return Bhash;
+                }
+                set
+                {
+                    Bhash = value;
+                    Strhash = Convert.ToBase64String(value);
+                }
+            }
 
             private string password;
             [Required]
@@ -88,6 +100,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     Console.WriteLine("Password: " + password);
                     Console.WriteLine("Salt: " + Salt);
                     Console.WriteLine("Hash Length: " + Hash.Length);
+                    Console.WriteLine("Hash String: " + Strhash);
                     Console.WriteLine("Animal Crackers in my Soup!");
                     // to user_login_info => username , Salt, password
                     string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
@@ -104,7 +117,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                         Console.WriteLine(ex);
                     }
                     connect.Close();
-                }
+                } 
             }
 
             private string confirmPassword;
@@ -135,7 +148,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
             {
                 Random r = new Random();
                 String salt = "";
-                for(int i=0; i<5; i++)
+                for(int i=0; i<20; i++)
                 {
                     char curr = 'a';
                     int rand_char_offset = r.Next(0, 26);
@@ -247,7 +260,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
             
             private string GetLoginQueary()
             {
-                String queary = "INSERT INTO `RST_DB`.`user_login_info`(`user_email`, `verify`, `salt`) VALUES('" + Email +"', '" + Hash +"', '" + Salt +"'); ";
+                String queary = "INSERT INTO `RST_DB`.`user_login_info`(`user_email`, `verify`, `salt`) VALUES('" + Email +"', '" + Strhash +"', '" + Salt +"'); ";
                 return queary;
             }
         }
@@ -265,6 +278,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
