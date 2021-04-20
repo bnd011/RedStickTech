@@ -84,8 +84,10 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 {
                     password = value;
                     Hash = GetHash(password + Salt);
+                    Console.WriteLine("Password: " + password);
+                    Console.WriteLine("Salt: " + Salt);
+                    Console.WriteLine("Hash Length: " + Hash.Length);
                     Console.WriteLine("Animal Crackers in my Soup!");
-                    Console.WriteLine(password);
                     // to user_login_info => username , Salt, password
                     string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
                     MySqlConnection connect = new MySqlConnection(ConnectionStr);
@@ -234,7 +236,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
             
             private string GetLoginQueary()
             {
-                String queary = "INSERT INTO `RST_DB`.`user_login_info`(`user_email`, `verify`, `salt`) VALUES('Beans@gmail.com', '[1001001]', 'SaltDeezNuts'); ";
+                String queary = "INSERT INTO `RST_DB`.`user_login_info`(`user_email`, `verify`, `salt`) VALUES('" + Email +"', '" + Hash +"', '" + Salt +"'); ";
                 return queary;
             }
         }
