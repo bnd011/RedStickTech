@@ -54,7 +54,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
 
-            private string salt;
+            private string salt { get; set; }
             private string Salt
             {
                 get
@@ -83,6 +83,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 {
                     string prehash = value + Salt;
                     password = GetHash(prehash);
+                    Console.WriteLine("Animal Crackers in my Soup!");
                     Console.WriteLine(password);
                 }
             }
@@ -135,9 +136,8 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     UnicodeEncoding ByteConverter = new UnicodeEncoding();
 
                     //Create byte arrays to hold original, encrypted, and decrypted data.
-                    byte[] dataToEncrypt = ByteConverter.GetBytes("Data to Encrypt");
+                    byte[] dataToEncrypt = ByteConverter.GetBytes(input);
                     byte[] encryptedData;
-                    byte[] decryptedData;
 
                     //Create a new instance of RSACryptoServiceProvider to generate
                     //public and private key data.
