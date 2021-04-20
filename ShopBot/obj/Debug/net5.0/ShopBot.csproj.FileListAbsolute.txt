@@ -603,7 +603,6 @@ C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\obj\Debug\net5.0\ref\ShopBot.
 C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\obj\Debug\net5.0\ShopBot.pdb
 C:\Users\Hall\Desktop\405_git\RedStickTech\ShopBot\obj\Debug\net5.0\ShopBot.genruntimeconfig.cache
 >>>>>>> f086916e98591ebb55583ab15239c6a9a305413a
-<<<<<<< HEAD
 C:\Users\mateo\Desktop\project mk5\ShopBot\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\mateo\Desktop\project mk5\ShopBot\bin\Debug\net5.0\appsettings.json
 C:\Users\mateo\Desktop\project mk5\ShopBot\bin\Debug\net5.0\ShopBot.StaticWebAssets.xml
@@ -782,7 +781,6 @@ C:\Users\mateo\Desktop\project mk5\ShopBot\obj\Debug\net5.0\ref\ShopBot.dll
 C:\Users\mateo\Desktop\project mk5\ShopBot\obj\Debug\net5.0\ShopBot.pdb
 C:\Users\mateo\Desktop\project mk5\ShopBot\obj\Debug\net5.0\ShopBot.genruntimeconfig.cache
 C:\Users\mateo\Desktop\project mk5\ShopBot\obj\Debug\net5.0\Razor\Views\Home\Make.cshtml.g.cs
-=======
 C:\Users\owens\Desktop\RedStickTech\ShopBot\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\owens\Desktop\RedStickTech\ShopBot\bin\Debug\net5.0\appsettings.json
 C:\Users\owens\Desktop\RedStickTech\ShopBot\bin\Debug\net5.0\ShopBot.StaticWebAssets.xml
@@ -970,3 +968,16 @@ C:\Users\owens\Desktop\RedStickTech\ShopBot\bin\Debug\net5.0\SshNet.Security.Cry
 C:\Users\owens\Desktop\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Models\Index.cshtml.g.cs
 C:\Users\owens\Desktop\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Views\Home\Schedules.cshtml.g.cs
 >>>>>>> 3bd2568651f4ab401e106d7e3fa74be861a9a229
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\Google.Protobuf.dll
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\K4os.Compression.LZ4.dll
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\K4os.Hash.xxHash.dll
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\MySql.Data.dll
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\Ubiety.Dns.Core.dll
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\Zstandard.Net.dll
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\Renci.SshNet.dll
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\bin\Debug\net5.0\SshNet.Security.Cryptography.dll
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Views\Home\About.cshtml.g.cs
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Views\Home\Make.cshtml.g.cs
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Views\Home\Tutorial.cshtml.g.cs
+C:\Users\harve\Documents\Capstone\RedStickTech\ShopBot\obj\Debug\net5.0\Razor\Views\Home\MakeSchedule.cshtml.g.cs

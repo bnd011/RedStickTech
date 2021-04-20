@@ -8180,19 +8180,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mateo\\.nuget\\packages\\": {}
+    "C:\\Users\\harve\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mateo\\Desktop\\project mk5\\ShopBot\\ShopBot.csproj",
+      "projectUniqueName": "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj",
       "projectName": "ShopBot",
-      "projectPath": "C:\\Users\\mateo\\Desktop\\project mk5\\ShopBot\\ShopBot.csproj",
-      "packagesPath": "C:\\Users\\mateo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mateo\\Desktop\\project mk5\\ShopBot\\obj\\",
+      "projectPath": "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\ShopBot.csproj",
+      "packagesPath": "C:\\Users\\harve\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\harve\\Documents\\Capstone\\RedStickTech\\ShopBot\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\mateo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\harve\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8288,13 +8293,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\mateo\\Desktop\\project mk5\\ShopBot\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
