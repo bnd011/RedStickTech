@@ -1,0 +1,26 @@
+﻿@page
+@model ShopBot.Views.Home.MakeScheduleModel
+@{
+    ViewData["Title"] = "Make A Schedule";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Input.ItemName"></label>
+        <input asp-for="Input.ItemName" class="form-control" />
+        <span asp-validation-for="Input.ItemName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.OrderDate"></label>
+        <input asp-for="Input.OrderDate" class="form-control" />
+        <span asp-validation-for="Input.OrderDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Quantity"></label>
+        <input asp-for="Input.Quantity" class="form-control" />
+        <span asp-validation-for="Input.Quantity" class="text-danger"></span>
+    </div>
+
+</div>
