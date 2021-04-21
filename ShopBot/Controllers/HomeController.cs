@@ -42,7 +42,7 @@ namespace ShopBot.Controllers
             return View();
         }
 
-        public ActionResult MakeSchedule()
+        public IActionResult MakeSchedule()
         {
             return View();
         }
@@ -52,7 +52,13 @@ namespace ShopBot.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
 
+        public ActionResult MakeASchedule(string ItemName, string Date, int Quantity )
+        {
+            Console.WriteLine(ItemName);
+            Console.WriteLine("Must've Worked");
+            
+            return View("MakeSchedule");
+        }
     }
 }

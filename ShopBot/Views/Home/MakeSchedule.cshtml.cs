@@ -31,6 +31,13 @@ namespace ShopBot.Views.Home
 
         public void OnGet()
         {
+            Input = new InputModel();
         }
+        public void MakeASchedule()
+        {
+            Console.WriteLine("Testing");
+            Console.WriteLine("Must've Worked");
+        }
+
     }
 }
