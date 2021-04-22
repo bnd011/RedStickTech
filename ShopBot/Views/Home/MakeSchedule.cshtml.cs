@@ -24,6 +24,28 @@ namespace ShopBot.Views.Home
             
             public int Quantity { get; set; }
 
+            [Required]
+            [DataType(DataType.Text)]
+            public string URL { get; set; }
+
+            
+            private string user_name { get; set; }
+            private string User_name
+            {
+                get
+                {
+                    return "dummy@email.com";
+                }
+                set
+                {
+                    user_name = "dummy@email.com";
+                }
+            }
+
+            private string GetScheduleQuery()
+            {
+                return "insert into RST_DB.schedules (`user_email`,`url`,`is_recurring`,`item`) values ('"+User_name+"','"+URL+"','0','"+ItemName+"');";
+            }
             
         }
 

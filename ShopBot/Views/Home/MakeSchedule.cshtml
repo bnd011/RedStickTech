@@ -8,29 +8,35 @@
 <h1>@ViewBag.Title</h1>
 
 <section>
-    <form asp-controller="Home" asp-action="MakeASchedule" asp-route-ItemName ="@Model.Input.ItemName" >
+    <form asp-controller="Home" asp-action="MakeASchedule" asp-route-ItemName="@Model.Input.ItemName">
         <hr />
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="Input.ItemName" ></label>
-            <input asp-for="Input.ItemName"  class="form-control" />
+            <label asp-for="Input.ItemName"></label>
+            <input asp-for="Input.ItemName" class="form-control" />
             <span asp-validation-for="Input.ItemName" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Input.OrderDate"></label>
-            <input asp-for="Input.OrderDate" asp-route-id ="Date" class="form-control" />
+            <input asp-for="Input.OrderDate" asp-route-id="Date" class="form-control" />
             <span asp-validation-for="Input.OrderDate" class="text-danger"></span>
         </div>
         <div class="form-group">
             <div>
                 <label asp-for="Input.Quantity">
-                    <input asp-for="Input.Quantity" asp-route-id ="Quantity"/>
+                    <input asp-for="Input.Quantity" asp-route-id="Quantity" />
                     @Html.DisplayNameFor(m => m.Input.Quantity)
                 </label>
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary" >Submit</button>
+            <label asp-for="Input.URL"></label>
+            <input asp-for="Input.URL" class="form-control" />
+            <span asp-validation-for="Input.URL" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
 
     </form>
