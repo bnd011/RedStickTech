@@ -97,6 +97,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     else
                     {
                         Console.WriteLine("Hash Does Not Match Verify");
+                        FailedLogin();
                     }
                 } 
             }
@@ -151,12 +152,84 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 Console.WriteLine("Query failed");
                 return output;
             }
+            private void FailedLogin()
+            {
+                string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
+                MySqlConnection connect = new MySqlConnection(ConnectionStr);
+                MySqlCommand login = connect.CreateCommand();
+                login.CommandText = GetFailedLoginRequestQuery();
+                connect.Open();
+                try
+                {
+                    MySqlDataReader connection = login.ExecuteReader();
+                    // the Failed Login Table has an existing Row with the Email
+                    if (connection.HasRows)
+                    {
+                        connection.Read();
+                        if (connection.FieldCount != 3)
+                        {
+                            connect.Close();
+                            Console.WriteLine("Too many Fields: ", connection.FieldCount);
+                        }
+                        else
+                        {
+                            int prevFail = (int)connection.GetValue(1);
+                            string last_time = (string)connection.GetValue(2);
+                            connect.Close();
+                            MySqlConnection connect2 = new MySqlConnection(ConnectionStr);
+                            MySqlCommand login2 = connect2.CreateCommand(); 
+                            login2.CommandText = GetFailedLoginModifyQuery(prevFail);
+                            connect2.Open();
+                            Console.WriteLine("Last Login Failure on: ", last_time);
+                            MySqlDataReader connection2 = login2.ExecuteReader();
+                            connect2.Close();
+                        }
+                    }
+                    // the Failed Login Table does not have an existing Row with the Email
+                    else
+                    {
+                        MySqlConnection connect3 = new MySqlConnection(ConnectionStr);
+                        MySqlCommand login3 = connect3.CreateCommand();
+                        login3.CommandText = GetFailedLoginNewQuery();
+                        connect3.Open();
+                        MySqlDataReader connection2 = login3.ExecuteReader();
+                        connect3.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                connect.Close();
+                Console.WriteLine("Failed Login Stub");
+            }
 
             private string GetLoginDetailsQueary()
             {
                 String queary = "SELECT * FROM `RST_DB`.`user_login_info` WHERE `user_email` = '" + Email +"'";
                 return queary;
             }
+
+            private string GetFailedLoginRequestQuery()
+            {
+                String queary = "SELECT * FROM `RST_DB`.`failed_login` WHERE `user_email` = '" + Email + "'";
+                return queary;
+            }
+
+            private string GetFailedLoginModifyQuery(int value)
+            {
+                DateTime now = DateTime.Now;
+                String queary = "UPDATE `RST_DB`.`failed_login` SET `failed_num` = '" + value + "', `time_of_try` = '" + now + "' WHERE `user_email` = '" + Email + "'";
+                return queary;
+            }
+
+            private string GetFailedLoginNewQuery()
+            {
+                DateTime now = DateTime.Now;
+                String queary = "INSERT INTO `RST_DB`.`failed_login`(`user_email`, `failed_num`, `time_of_try`) VALUES('" + Email + "', '1', '" + now +"');";
+                return queary;
+            }
+
 
             //https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rsacryptoserviceprovider?view=net-5.0
             private static byte[] GetHash(string input)
