@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -11,6 +13,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using MySql.Data.MySqlClient;
 
 namespace ShopBot.Areas.Identity.Pages.Account
 {
@@ -42,22 +45,30 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            private string[] Qreturn { get; set; }
+
             [Required]
             [EmailAddress]
+            [Display(Name = "Email")]
             public string Email { get; set; }
 
-            private string salt;
-            private string Salt
+            protected internal String Strhash { get; set; }
+            protected internal byte[] Bhash { get; set; }
+            private byte[] Hash
             {
                 get
                 {
-                    return salt;
+                    return Bhash;
                 }
                 set
                 {
-                    salt = GetSalt();
+                    Bhash = value;
+                    Strhash = Convert.ToBase64String(value);
                 }
             }
+
+            private string Verify { get; set; }
+            private string Salt { get; set; }
 
             private string password;
             [Required]
@@ -69,25 +80,149 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 }
                 set 
                 {
-                    string prehash = value + Salt;
-                    password = GetHash(prehash);
-                    Console.WriteLine(password);
+                    Qreturn = GetQReturn();
+                    //Console.WriteLine("Q: " + Qreturn);
+                    Verify = Qreturn[1];
+                    Salt = Qreturn[2];
+                    password = value;
+                    Hash = GetHash(password + Salt);
+                    Console.WriteLine("Password: " + password);
+                    Console.WriteLine("Salt: " + Salt);
+                    Console.WriteLine("Verify: " + Verify);
+                    Console.WriteLine("Hash: " + Strhash);
+                    if (Strhash == Verify)
+                    {
+                        Console.WriteLine("Hash Matches Verify");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hash Does Not Match Verify");
+                    }
                 } 
             }
 
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
 
-            private static string GetSalt()
+            private string [] GetQReturn()
             {
-                //implement Salt 64
-                return "RedStickTech";
+                string[] output = { "null", "null", "null"};
+                string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
+                MySqlConnection connect = new MySqlConnection(ConnectionStr);
+                MySqlCommand login = connect.CreateCommand();
+                login.CommandText = GetLoginDetailsQueary();
+                connect.Open();
+                try
+                {
+                    MySqlDataReader connection = login.ExecuteReader();
+                    if (connection.HasRows)
+                    {
+                        connection.Read();
+                        if (connection.FieldCount != 3)
+                        {
+                            connect.Close();
+                            Console.WriteLine("Too many Fields: ", connection.FieldCount);
+                            return output;
+                        }
+                        else
+                        {
+                            string[] results = { (string)connection.GetValue(0),
+                                                (string)connection.GetValue(1),
+                                                (string)connection.GetValue(2)};
+                            Console.WriteLine(results[1], results[2]);
+                            connect.Close();
+                            return results;
+                        }
+
+                    }
+                    else
+                    {
+                        connect.Close();
+                        Console.WriteLine("Invalid Email Address");
+                        return output;
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                connect.Close();
+                Console.WriteLine("Query failed");
+                return output;
             }
 
-            private static string GetHash(string input)
+            private string GetLoginDetailsQueary()
             {
-                //implement RSA11
-                return input;
+                String queary = "SELECT * FROM `RST_DB`.`user_login_info` WHERE `user_email` = '" + Email +"'";
+                return queary;
+            }
+
+            //https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rsacryptoserviceprovider?view=net-5.0
+            private static byte[] GetHash(string input)
+            {
+                try
+                {
+                    //Create a UnicodeEncoder to convert between byte array and string.
+                    UnicodeEncoding ByteConverter = new UnicodeEncoding();
+
+                    //Create byte arrays to hold original, encrypted, and decrypted data.
+                    byte[] dataToEncrypt = ByteConverter.GetBytes(input);
+                    byte[] encryptedData;
+
+                    //Create a new instance of RSACryptoServiceProvider to generate
+                    //public and private key data.
+                    using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                    {
+
+                        //Pass the data to ENCRYPT, the public key information 
+                        //(using RSACryptoServiceProvider.ExportParameters(false),
+                        //and a boolean flag specifying no OAEP padding.
+                        encryptedData = RSAEncrypt(dataToEncrypt, RSA.ExportParameters(false), false);
+                        //https://stackoverflow.com/questions/1003275/how-to-convert-utf-8-byte-to-string
+                        //string encryptedString = Encoding.UTF8.GetString(encryptedData);
+                        //return encryptedString;
+                        return encryptedData;
+                    }
+                }
+                catch (ArgumentNullException)
+                {
+                    //Catch this exception in case the encryption did
+                    //not succeed.
+                    UnicodeEncoding ByteConverter = new UnicodeEncoding();
+                    Console.WriteLine("Encryption failed.");
+                    return ByteConverter.GetBytes("default");
+                }
+            }
+        }
+
+        public static byte[] RSAEncrypt(byte[] DataToEncrypt, RSAParameters RSAKeyInfo, bool DoOAEPPadding)
+        {
+            try
+            {
+                byte[] encryptedData;
+                //Create a new instance of RSACryptoServiceProvider.
+                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                {
+
+                    //Import the RSA Key information. This only needs
+                    //toinclude the public key information.
+                    RSA.ImportParameters(RSAKeyInfo);
+
+                    //Encrypt the passed byte array and specify OAEP padding.  
+                    //OAEP padding is only available on Microsoft Windows XP or
+                    //later.  
+                    encryptedData = RSA.Encrypt(DataToEncrypt, DoOAEPPadding);
+                }
+                return encryptedData;
+            }
+            //Catch and display a CryptographicException  
+            //to the console.
+            catch (CryptographicException e)
+            {
+                Console.WriteLine(e.Message);
+
+                return null;
             }
         }
 
@@ -113,7 +248,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
             returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-        
+            
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj": {}
+    "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\ShopBot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj": {
+    "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\ShopBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj",
+        "projectUniqueName": "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\ShopBot.csproj",
         "projectName": "ShopBot",
-        "projectPath": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj",
+        "projectPath": "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\ShopBot.csproj",
         "packagesPath": "C:\\Users\\Hall\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\obj\\",
+        "outputPath": "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -89,6 +89,10 @@
             "NETCore.MailKit": {
               "target": "Package",
               "version": "[2.0.3, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[5.0.0-alpha.2, )"
             }
           },
           "imports": [

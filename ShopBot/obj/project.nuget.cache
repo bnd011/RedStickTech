@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uGYgfaV61xwSfuUUN44BbAR83Yu5OO8IAsT/OfLXN6kUtSa+LhjE9kwkbgEl4yZQAdzjerDYH+UXAa/KkR0Z8g==",
+  "dgSpecHash": "j2xNKyFdCtZqsb9aCHbUJn7y3gxUK8OD38zvtCh2NlcwdkmWm8scgMzKxIeR3unnYnctWEDBba+5JXmhi39TaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hall\\Desktop\\405_git\\RedStickTech\\ShopBot\\ShopBot.csproj",
+  "projectFilePath": "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\ShopBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hall\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\fluentemail.core\\3.0.0\\fluentemail.core.3.0.0.nupkg.sha512",
@@ -72,8 +72,10 @@
     "C:\\Users\\Hall\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\mimekit\\2.10.1\\mimekit.2.10.1.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\mysql.data\\8.0.23\\mysql.data.8.0.23.nupkg.sha512",
+    "C:\\Users\\Hall\\.nuget\\packages\\mysqlconnector\\1.1.0\\mysqlconnector.1.1.0.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\netcore.mailkit\\2.0.3\\netcore.mailkit.2.0.3.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\Hall\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\5.0.0-alpha.2\\pomelo.entityframeworkcore.mysql.5.0.0-alpha.2.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\portable.bouncycastle\\1.8.8\\portable.bouncycastle.1.8.8.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Hall\\.nuget\\packages\\ssh.net\\2020.0.0-beta1\\ssh.net.2020.0.0-beta1.nupkg.sha512",
