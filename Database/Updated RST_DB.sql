@@ -23,7 +23,7 @@ drop table if exists failed_login;
 create table failed_login (
 	user_email	varchar(50)	not null,
 	failed_num	integer default 1,
-	Time_of_try	datetime not null,
+	Time_of_try	varchar(20) not null,
 	primary key (user_email)
 	);
 
