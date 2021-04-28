@@ -29,37 +29,25 @@ namespace ShopBot.Views.Home
             public string URL { get; set; }
 
             
-            private string user_name { get; set; }
-            private string User_name
-            {
-                get
-                {
-                    return "dummy@email.com";
-                }
-                set
-                {
-                    user_name = "dummy@email.com";
-                }
-            }
+           
+            public string UserName{ get; set; }
 
-            private string GetScheduleQuery()
+            private string GetMakeScheduleQuery()
             {
-                return "insert into RST_DB.schedules (`user_email`,`url`,`is_recurring`,`item`) values ('"+User_name+"','"+URL+"','0','"+ItemName+"');";
+                return "insert into RST_DB.schedules (`user_email`,`url`,`is_recurring`,`item`) values ('"+UserName+"','"+URL+"','0','"+ItemName+"');";
             }
             
         }
-
+        [BindProperty]
         public InputModel Input { get; set; }
 
-        public void OnGet()
+        public MakeScheduleModel()
         {
             Input = new InputModel();
+             
         }
-        public void MakeASchedule()
-        {
-            Console.WriteLine("Testing");
-            Console.WriteLine("Must've Worked");
-        }
+
+        
 
     }
 }
