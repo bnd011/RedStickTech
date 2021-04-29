@@ -1,35 +1,50 @@
-﻿
-@model ShopBot.Views.Home.MakeScheduleModel
+﻿@model ShopBot.Views.Home.MakeScheduleModel
 @{
     ViewBag.Title = "Make A Schedule";
+    var pageInput = new ShopBot.Views.Home.MakeScheduleModel.InputModel();
+
+    
 }
 <h1>@ViewBag.Title</h1>
 
 <section>
-    <form id="account" method="post">
+    <form asp-controller="Home" asp-action="MakeASchedule" method="post">
         <hr />
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="Input.ItemName"></label>
-            <input asp-for="Input.ItemName" class="form-control" />
-            <span asp-validation-for="Input.ItemName" class="text-danger"></span>
+            <label asp-for="@Model.Input.UserName"></label>
+            <input id="ItemName" asp-for="@Model.Input.UserName" name="UserName" class="form-control" />
+            <span asp-validation-for="@Model.Input.UserName" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Input.OrderDate"></label>
-            <input asp-for="Input.OrderDate" class="form-control" />
-            <span asp-validation-for="Input.OrderDate" class="text-danger"></span>
+            <label asp-for="@Model.Input.ItemName"></label>
+            <input id="ItemName" asp-for="@Model.Input.ItemName" name="ItemName" class="form-control" />
+            <span asp-validation-for="@Model.Input.ItemName" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <div class="checkbox">
+            <label asp-for="@Model.Input.OrderDate"></label>
+            <input asp-for="@Model.Input.OrderDate" name="Date" asp-route-id="Date" class="form-control" />
+            <span asp-validation-for="@Model.Input.OrderDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div>
                 <label asp-for="Input.Quantity">
-                    <input asp-for="Input.Quantity" />
+                    <input asp-for="Input.Quantity" name="Quantity" asp-route-id="Quantity" />
                     @Html.DisplayNameFor(m => m.Input.Quantity)
                 </label>
             </div>
         </div>
         <div class="form-group">
+            <label asp-for="Input.URL"></label>
+            <input asp-for="Input.URL" name="URL" class="form-control" />
+            <span asp-validation-for="Input.URL" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+
     </form>
+    
 </section>
 
