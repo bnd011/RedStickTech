@@ -24,13 +24,30 @@ namespace ShopBot.Views.Home
             
             public int Quantity { get; set; }
 
+            [Required]
+            [DataType(DataType.Text)]
+            public string URL { get; set; }
+
+            
+           
+            public string UserName{ get; set; }
+
+            private string GetMakeScheduleQuery()
+            {
+                return "insert into RST_DB.schedules (`user_email`,`url`,`is_recurring`,`item`) values ('"+UserName+"','"+URL+"','0','"+ItemName+"');";
+            }
             
         }
-
+        [BindProperty]
         public InputModel Input { get; set; }
 
-        public void OnGet()
+        public MakeScheduleModel()
         {
+            Input = new InputModel();
+             
         }
+
+        
+
     }
 }

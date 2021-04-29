@@ -1,18 +1,24 @@
 ﻿@model ShopBot.Views.Home.GetScheduleModel
 @{
 	ViewBag.Title = "View Schedules";
+	
 }
 <h1>@ViewBag.Title</h1>
 
 <section>
 	<form id="account" method="post">
 		<div class="form-group">
-			<label asp-for="@Model.Input.GetList"></label>
-			<input asp-for="@Model.Input.GetList" class="form-control" />
-			<span asp-validation-for="@Model.Input.GetList" class="text-danger"></span>
+			<label asp-for="@Model.Output.GetList"></label>
+			<input asp-for="@Model.Output.GetList" class="form-control" />
+			<span asp-validation-for="@Model.Output.GetList" class="text-danger"></span>
 		</div>
 	</form>
 </section>
+
+<t1>Schedules</t1>
+<div>
+	Beans
+</div>
 
 <label for="list-select">Choose a Schedule:</label>
 <select name="pets" id="list-select">
