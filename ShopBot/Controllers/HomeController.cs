@@ -61,7 +61,7 @@ namespace ShopBot.Controllers
             string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
             MySqlConnection connect = new MySqlConnection(ConnectionStr);
             MySqlCommand makeSchedule = connect.CreateCommand();
-            makeSchedule.CommandText = "insert into RST_DB.schedules (`user_email`,`url`,`is_recurring`,`item`) values ('" + UserName + "','" + URL + "','0','" + ItemName + "');";
+            makeSchedule.CommandText = "insert into RST_DB.schedules (`user_email`,`url`,`item`) values ('" + UserName + "','" + URL + "','" + ItemName + "');";
             connect.Open();
             try
             {
