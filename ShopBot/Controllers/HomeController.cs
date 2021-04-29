@@ -29,7 +29,7 @@ namespace ShopBot.Controllers
             return View();
         }
 
-        public IActionResult Schedule()
+        public IActionResult GetSchedule()
         {
             return View();
         }
