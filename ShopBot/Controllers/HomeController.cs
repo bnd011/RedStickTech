@@ -8,6 +8,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Web;
+
 namespace ShopBot.Controllers
 {
     public class HomeController : Controller
@@ -31,7 +33,10 @@ namespace ShopBot.Controllers
 
         public IActionResult GetSchedule()
         {
-            ViewBag.scheduleMessage = "No Schedules loaded";
+
+            string scheduleString = "<table> <tr> <th>User Name</th> <th>URL</th ><th>Item</th> </tr> </table>";
+            //string encodedString = HttpUtility.HtmlEncode(scheduleString);
+            ViewBag.scheduleMessage = scheduleString;
             return View();
         }
         public IActionResult About()
@@ -114,8 +119,8 @@ namespace ShopBot.Controllers
                         string ItemText = (string)connection.GetValue(4);
 
                         string[] results = { User_email, URL, ItemText};
-                        Console.WriteLine("SIDN: " + ScheduleIDN + "Archived: " + Archived);
-                        Console.WriteLine(results[0] +  results[1] + results[2]);
+                        Console.WriteLine("SIDN: " + ScheduleIDN + " Archived: " + Archived);
+                        Console.WriteLine(results[0] + " " +  results[1] + " " + results[2]);
                         schedules.Add(results);
                     }
                     count++;
@@ -131,7 +136,15 @@ namespace ShopBot.Controllers
                 Console.WriteLine(ex);
             }
             connect.Close();
-            ViewBag.scheduleMessage = "Schedules";
+            string scheduleString = "<h2>" + UserName + " </h2> <table class=\"table table-striped table-bordered \"> "+
+                                                     "<thead> <tr> <th scope=\"col\"> URL </th> <th scope=\"col\"> Item </th> </tr> ";
+            foreach (string[] schedule in schedules)
+            {
+                scheduleString = scheduleString + "<tr> <td>" + schedule[1] + " </td> <td>" + schedule[2] + " </td> </tr> ";
+            }
+            scheduleString = scheduleString + "</thead> </table>";
+            //string encodedString = HttpUtility.HtmlEncode(scheduleString);
+            ViewBag.scheduleMessage = scheduleString;
             return View("GetSchedule");
         }
     }
