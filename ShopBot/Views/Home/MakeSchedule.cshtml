@@ -2,8 +2,6 @@
 @{
     ViewBag.Title = "Make A Schedule";
     var pageInput = new ShopBot.Views.Home.MakeScheduleModel.InputModel();
-
-    
 }
 <h1>@ViewBag.Title</h1>
 
@@ -13,7 +11,7 @@
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="@Model.Input.UserName"></label>
-            <input id="ItemName" asp-for="@Model.Input.UserName" name="UserName" class="form-control" />
+            <input id="UserName" asp-for="@Model.Input.UserName" name="UserName" class="form-control" />
             <span asp-validation-for="@Model.Input.UserName" class="text-danger"></span>
         </div>
         <div class="form-group">
@@ -34,17 +32,26 @@
                 </label>
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="Input.URL"></label>
-            <input asp-for="Input.URL" name="URL" class="form-control" />
-            <span asp-validation-for="Input.URL" class="text-danger"></span>
+        <!--
+    <div class="form-group">
+        <label asp-for="Input.URL"></label>
+        <input asp-for="Input.URL" name="URL" class="form-control" />
+        <span asp-validation-for="Input.URL" class="text-danger"></span>
+    </div>
+    -->
+        <div>
+            <label asp-for="@Model.Input.URL">Choose a URL:</label>
+            <!--<input asp-for="Input.URL" name="URL" class="form-control" />-->
+            <select asp-validation-for="Input.URL" name="URL" id="list-select">
+                <option value="https://www.walmart.com/grocery/">Walmart</option>
+                <option value="https://www.amazon.com/">Amazon</option>
+                <option value="https://www.kroger.com/">Kroger</option>
+            </select>
         </div>
-
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
 
     </form>
-    
-</section>
 
+</section>

@@ -11,6 +11,7 @@ namespace ShopBot.Views.Home
     public class MakeScheduleModel : PageModel
     {
         
+        
         public class InputModel
         {
             [Required]
@@ -43,8 +44,7 @@ namespace ShopBot.Views.Home
 
         public MakeScheduleModel()
         {
-            Input = new InputModel();
-             
+            Input = new InputModel();             
         }
 
         

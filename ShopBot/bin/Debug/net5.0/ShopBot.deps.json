@@ -44,6 +44,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
           "MySql.Data": "8.0.23",
           "NETCore.MailKit": "2.0.3",
+          "Pomelo.EntityFrameworkCore.MySql": "5.0.0-alpha.2",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -1356,6 +1357,17 @@
           "lib/net5.0/Zstandard.Net.dll": {}
         }
       },
+      "MySqlConnector/1.1.0": {
+        "runtime": {
+          "lib/net5.0/MySqlConnector.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/MySqlConnector.dll": {}
+        }
+      },
       "NETCore.MailKit/2.0.3": {
         "dependencies": {
           "MailKit": "2.10.1",
@@ -1380,6 +1392,21 @@
         },
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Pomelo.EntityFrameworkCore.MySql/5.0.0-alpha.2": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.2",
+          "MySqlConnector": "1.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll": {}
         }
       },
       "Portable.BouncyCastle/1.8.8": {
@@ -4295,6 +4322,13 @@
       "path": "mysql.data/8.0.23",
       "hashPath": "mysql.data.8.0.23.nupkg.sha512"
     },
+    "MySqlConnector/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RQPR2vkQjSiyGH2mV17K4+gDcgI8hidxgD2qli3OcRupvqpQjoL6S35M3ZjIM6CXC0TgImvJo3HA/fLSOG+oBA==",
+      "path": "mysqlconnector/1.1.0",
+      "hashPath": "mysqlconnector.1.1.0.nupkg.sha512"
+    },
     "NETCore.MailKit/2.0.3": {
       "type": "package",
       "serviceable": true,
@@ -4308,6 +4342,13 @@
       "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "path": "newtonsoft.json/11.0.2",
       "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+    },
+    "Pomelo.EntityFrameworkCore.MySql/5.0.0-alpha.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g2+otNSXHxzmWUJI7+KfoL9C35V8BAKC1fqfriHNNghMQiwrUkK+xaN+3w5r5+YUKA1qfiJH6+Wwc+Kkcsr3Og==",
+      "path": "pomelo.entityframeworkcore.mysql/5.0.0-alpha.2",
+      "hashPath": "pomelo.entityframeworkcore.mysql.5.0.0-alpha.2.nupkg.sha512"
     },
     "Portable.BouncyCastle/1.8.8": {
       "type": "package",
