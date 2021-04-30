@@ -56,8 +56,8 @@ namespace ShopBot.Controllers
         [HttpPost]
         public ActionResult MakeASchedule(string ItemName, string Date, int Quantity, string URL, string UserName)
         {
-            Console.WriteLine(ItemName);
-            Console.WriteLine("Must've Worked");
+            Console.WriteLine("Item: " + ItemName + " User name: " + UserName + " Quantity: " + Quantity + " URL: " + URL + " Date: " + Date);
+            //Console.WriteLine("Must've Worked");
             string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
             MySqlConnection connect = new MySqlConnection(ConnectionStr);
             MySqlCommand makeSchedule = connect.CreateCommand();

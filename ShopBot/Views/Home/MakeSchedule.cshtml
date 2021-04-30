@@ -1,7 +1,7 @@
 ﻿@model ShopBot.Views.Home.MakeScheduleModel
 @{
     ViewBag.Title = "Make A Schedule";
-    var pageInput = new ShopBot.Views.Home.MakeScheduleModel.InputModel();   
+    var pageInput = new ShopBot.Views.Home.MakeScheduleModel.InputModel();
 }
 <h1>@ViewBag.Title</h1>
 
@@ -32,17 +32,27 @@
                 </label>
             </div>
         </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary" OnClick="ourfunction">Submit</button>
-            <label asp-for="Input.URL"></label>
-            <input asp-for="Input.URL" name="URL" class="form-control" />
-            <span asp-validation-for="Input.URL" class="text-danger"></span>
+        <!--
+    <div class="form-group">
+        <label asp-for="Input.URL"></label>
+        <input asp-for="Input.URL" name="URL" class="form-control" />
+        <span asp-validation-for="Input.URL" class="text-danger"></span>
+    </div>
+    -->
+        <div>
+            <label asp-for="@Model.Input.URL">Choose a URL:</label>
+            <!--<input asp-for="Input.URL" name="URL" class="form-control" />-->
+            <select asp-validation-for="Input.URL" name="URL" id="list-select">
+                <option value="">Select</option>
+                <option value="www.walmart.com">Walmart</option>
+                <option value="www.amazon.com">Amazon</option>
+                <option value="www.Kroger.com">Kroger</option>
+            </select>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
 
     </form>
-    
-</section>
+
 
