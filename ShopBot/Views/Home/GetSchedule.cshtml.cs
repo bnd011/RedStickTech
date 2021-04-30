@@ -77,13 +77,16 @@ namespace ShopBot.Views.Home
             connect.Open();
             try
             {
+                bool jumper = true;
                 MySqlDataReader connection = getSchedule.ExecuteReader();
-                while (connection.HasRows)
+                while (connection.HasRows && jumper)
                 {
+                    connection.Read();
                     if (connection.FieldCount != 5)
                     {
                         connect.Close();
                         Console.WriteLine("Wrong number of fields: ", connection.FieldCount);
+                        jumper = false;
                     }
                     else
                     {
@@ -93,7 +96,6 @@ namespace ShopBot.Views.Home
                                                 (string)connection.GetValue(3),
                                                 (string)connection.GetValue(4)};
                         Console.WriteLine(results[0], results[1], results[2], results[3], results[4]);
-                        connect.Close();
                         schedules.Add(results);
                     }
                 }
@@ -111,6 +113,7 @@ namespace ShopBot.Views.Home
         }
         public void OnGet()
         {
+            Console.WriteLine("OnGet stub?");
         }
     }
 }
