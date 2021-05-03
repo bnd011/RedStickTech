@@ -281,6 +281,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            /*
             if (ModelState.IsValid)
             {
                 Console.WriteLine("############# Async command stub #############");
@@ -329,9 +330,9 @@ namespace ShopBot.Areas.Identity.Pages.Account
             }
 
             // If we got this far, something failed, redisplay form
-            return Page();
+            */
+            return RedirectToPage(returnUrl);
         }
-
 
     }
 

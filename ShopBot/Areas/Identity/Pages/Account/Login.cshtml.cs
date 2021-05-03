@@ -66,7 +66,20 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     Strhash = Convert.ToBase64String(value);
                 }
             }
-
+            protected internal String Strhash2 { get; set; }
+             protected internal byte[] Bhash2 { get; set; }
+            public byte[] Hash2
+            {
+                get
+                {
+                    return Bhash2;
+                }
+                set
+                {
+                    Bhash2 = value;
+                    Strhash2 = Convert.ToBase64String(value);
+                }
+            }
             private string Verify { get; set; }
             private string Salt { get; set; }
 
@@ -80,16 +93,20 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 }
                 set 
                 {
+                    //ShopBot.Controllers.HomeController.ViewBag.account = Email;
+                    Controllers.HomeController.passEmail(Email);
                     Qreturn = GetQReturn();
                     //Console.WriteLine("Q: " + Qreturn);
                     Verify = Qreturn[1];
                     Salt = Qreturn[2];
                     password = value;
                     Hash = GetHash(password + Salt);
+                    Hash2 = GetHash(password + Salt);
                     Console.WriteLine("Password: " + password);
                     Console.WriteLine("Salt: " + Salt);
                     Console.WriteLine("Verify: " + Verify);
                     Console.WriteLine("Hash: " + Strhash);
+                    Console.WriteLine("Hash: " + Strhash2);
                     if (Strhash == Verify)
                     {
                         Console.WriteLine("Hash Matches Verify");
@@ -130,7 +147,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                             string[] results = { (string)connection.GetValue(0),
                                                 (string)connection.GetValue(1),
                                                 (string)connection.GetValue(2)};
-                            Console.WriteLine(results[1], results[2]);
+                            //Console.WriteLine("GQR!: " + results[1] + " " + results[2]);
                             connect.Close();
                             return results;
                         }
@@ -181,7 +198,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                             login2.CommandText = GetFailedLoginModifyQuery(prevFail);
                             connect2.Open();
                             Console.WriteLine("Last Login Failure on: ", last_time);
-                            MySqlDataReader connection2 = login2.ExecuteReader();
+                            string connection2 = (string)login2.ExecuteScalar();
                             connect2.Close();
                         }
                     }
@@ -192,7 +209,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                         MySqlCommand login3 = connect3.CreateCommand();
                         login3.CommandText = GetFailedLoginNewQuery();
                         connect3.Open();
-                        MySqlDataReader connection2 = login3.ExecuteReader();
+                        string connection3 = (string)login3.ExecuteScalar();
                         connect3.Close();
                     }
                 }
@@ -206,20 +223,20 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
             private string GetLoginDetailsQueary()
             {
-                String queary = "SELECT * FROM `RST_DB`.`user_login_info` WHERE `user_email` = '" + Email +"'";
+                String queary = "SELECT * FROM `RST_DB`.`user_login_info` WHERE `user_email` = '" + Email +"';";
                 return queary;
             }
 
             private string GetFailedLoginRequestQuery()
             {
-                String queary = "SELECT * FROM `RST_DB`.`failed_login` WHERE `user_email` = '" + Email + "'";
+                String queary = "SELECT * FROM `RST_DB`.`failed_login` WHERE `user_email` = '" + Email + "';";
                 return queary;
             }
 
             private string GetFailedLoginModifyQuery(int value)
             {
                 DateTime now = DateTime.Now;
-                String queary = "UPDATE `RST_DB`.`failed_login` SET `failed_num` = '" + value + "', `time_of_try` = '" + now + "' WHERE `user_email` = '" + Email + "'";
+                String queary = "UPDATE `RST_DB`.`failed_login` SET `failed_num` = '" + value + "', `time_of_try` = '" + now + "' WHERE `user_email` = '" + Email + "';";
                 return queary;
             }
 
@@ -319,9 +336,9 @@ namespace ShopBot.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
-
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             
+            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            /*
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
@@ -350,6 +367,8 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
             // If we got this far, something failed, redisplay form
             return Page();
+            */
+            return RedirectToPage(returnUrl);
         }
     }
 }

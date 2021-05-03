@@ -14,6 +14,21 @@ namespace ShopBot.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        private static string accuout { get; set; }
+        public static string Account
+        {
+            get
+            {
+                Console.WriteLine("Account get() stub: "+ accuout);
+                return accuout;
+            }
+            set
+            {
+                Console.WriteLine("Account set() stub: " + value);
+                accuout = value;
+            }
+        }
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -40,6 +55,11 @@ namespace ShopBot.Controllers
         public IActionResult Tutorial()
         {
             return View();
+        }
+
+        public static void passEmail(string email)
+        {
+            Account = email;
         }
 
         public ActionResult MakeSchedule()
