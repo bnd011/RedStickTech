@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-ShopBot-D03766EE-E5FE-4259-AD6E-59E9E7E5CB56</UserSecretsId>
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <ApplicationIcon>ShopBotIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
