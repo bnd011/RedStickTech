@@ -57,7 +57,7 @@ namespace ShopBot.Controllers
             else
             {
                 string scheduleString = "<h2> Login to view Schedules </h2> <table class=\"table table-striped table-bordered \"> " +
-                                                         "<thead> <tr> <th scope=\"col\"> URL </th> <th scope=\"col\"> Item </th> </tr> ";
+                                                         "<thead> <tr> <th scope=\"col\"> URL </th> <th scope=\"col\"> QTY: </th> <th scope=\"col\"> Item </th> <th scope=\"col\"> Archived: </th> </tr> ";
 
                 //string encodedString = HttpUtility.HtmlEncode(scheduleString);
                 ViewBag.scheduleMessage = scheduleString;
@@ -99,7 +99,7 @@ namespace ShopBot.Controllers
             string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
             MySqlConnection connect = new MySqlConnection(ConnectionStr);
             MySqlCommand makeSchedule = connect.CreateCommand();
-            makeSchedule.CommandText = "insert into RST_DB.schedules (`user_email`,`url`,`item`) values ('" + UserName + "','" + URL + "','" + ItemName + "');";
+            makeSchedule.CommandText = "insert into RST_DB.schedules (`user_email`,`url`,`item`,`quantity`) values ('" + UserName + "','" + URL + "','" + ItemName + "','" + Quantity + "');";
             connect.Open();
             try
             {
@@ -115,71 +115,7 @@ namespace ShopBot.Controllers
             return View("MakeSchedule");
         }
 
-        [HttpPost]
-        public ActionResult GetSchedules(string UserName)
-        {
-            List<String[]> schedules = new();
-            Console.WriteLine(" User name: " + UserName);
-            //Console.WriteLine("Must've Worked");
-            string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
-            MySqlConnection connect = new MySqlConnection(ConnectionStr);
-            MySqlCommand getSchedule = connect.CreateCommand();
-            getSchedule.CommandText = "Select * from RST_DB.schedules where `user_email` ='" + UserName + "';";
-            connect.Open();
-            try
-            {
-                bool jumper = true;
-                int count = 0;
-                MySqlDataReader connection = getSchedule.ExecuteReader();
-                connection.Read();
-                while (connection.HasRows && jumper && count < 10)
-                {
-
-                    Console.WriteLine("Rows: " + connection.HasRows + "Count: " + count);
-                    if (connection.FieldCount != 5)
-                    {
-                        connect.Close();
-                        Console.WriteLine("Wrong number of fields: " + connection.FieldCount);
-                        jumper = false;
-                    }
-                    else
-                    {
-                        int ScheduleIDN = (int)connection.GetValue(0);
-                        string User_email = (string)connection.GetValue(1);
-                        ulong Archived = (ulong)connection.GetValue(2);
-                        string URL = (string)connection.GetValue(3);
-                        string ItemText = (string)connection.GetValue(4);
-
-                        string[] results = { User_email, URL, ItemText};
-                        Console.WriteLine("SIDN: " + ScheduleIDN + " Archived: " + Archived);
-                        Console.WriteLine(results[0] + " " +  results[1] + " " + results[2]);
-                        schedules.Add(results);
-                    }
-                    count++;
-                    connection.Read();
-                }
-                if (schedules.Count == 0)
-                {
-                    Console.WriteLine("No matching Schedules!");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            connect.Close();
-            string scheduleString = "<h2>" + UserName + " </h2> <table class=\"table table-striped table-bordered \"> "+
-                                                     "<thead> <tr> <th scope=\"col\"> URL </th> <th scope=\"col\"> Item </th> </tr> ";
-            foreach (string[] schedule in schedules)
-            {
-                scheduleString = scheduleString + "<tr> <td>" + schedule[1] + " </td> <td>" + schedule[2] + " </td> </tr> ";
-            }
-            scheduleString = scheduleString + "</thead> </table>";
-            //string encodedString = HttpUtility.HtmlEncode(scheduleString);
-            ViewBag.scheduleMessage = scheduleString;
-            return View("GetSchedule");
-        }
-
+       
         public string GetSchedules()
         {
             List<String[]> schedules = new();
@@ -200,7 +136,7 @@ namespace ShopBot.Controllers
                 {
 
                     Console.WriteLine("Rows: " + connection.HasRows + "Count: " + count);
-                    if (connection.FieldCount != 6)
+                    if (connection.FieldCount != 7)
                     {
                         connect.Close();
                         Console.WriteLine("Wrong number of fields: " + connection.FieldCount);
@@ -214,9 +150,14 @@ namespace ShopBot.Controllers
                         string URL = (string)connection.GetValue(3);
                         string ItemText = (string)connection.GetValue(4);
                         int Quantity = (int)connection.GetValue(5);
+                        string IsArchived = "no";
+                        if (Archived!=0)
+                        {
+                            IsArchived = "yes";
+                        }
 
-                        string[] results = { User_email, URL, ItemText, Quantity.ToString() };
-                        Console.WriteLine("SIDN: " + ScheduleIDN + " Archived: " + Archived);
+                        string[] results = { User_email, URL, ItemText, Quantity.ToString(), IsArchived };
+                        Console.WriteLine("SIDN: " + ScheduleIDN + " Archived: " + IsArchived);
                         Console.WriteLine(results[0] + " " + results[1] + " " + results[2] + " " + results[3]);
                         schedules.Add(results);
                         connection.Read();
@@ -234,10 +175,10 @@ namespace ShopBot.Controllers
             }
             connect.Close();
             string scheduleString = "<h2>" + Account + " </h2> <table class=\"table table-striped table-bordered \"> " +
-                                                     "<thead> <tr> <th scope=\"col\"> URL: </th> <th scope=\"col\"> QTY: </th> <th scope=\"col\"> Item: </th> </tr> ";
+                                                     "<thead> <tr> <th scope=\"col\"> URL: </th> <th scope=\"col\"> QTY: </th> <th scope=\"col\"> Item: </th> <th scope=\"col\"> Archived: </th> </tr> ";
             foreach (string[] schedule in schedules)
             {
-                scheduleString = scheduleString + "<tr> <td>" + schedule[1] + " </td> <td>" + schedule[3] + " </td> <td>" + schedule[2] + " </td> </tr> ";
+                scheduleString = scheduleString + "<tr> <td>" + schedule[1] + " </td> <td>" + schedule[3] + " </td> <td>" + schedule[2] + " </td> <td>" + schedule[4] + " </td> </tr> ";
             }
             scheduleString = scheduleString + "</thead> </table>";
             //string encodedString = HttpUtility.HtmlEncode(scheduleString);
