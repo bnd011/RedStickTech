@@ -48,6 +48,11 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            public InputModel()
+            {
+                publicKey = Controllers.HomeController.publicKey;
+            }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -81,6 +86,8 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 }
             }
 
+            public static RSAParameters publicKey;
+
             private string password;
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -96,6 +103,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 {
                     password = value;
                     Salt = GetSalt();
+                    publicKey = Controllers.HomeController.publicKey;
                     Hash = GetHash(password + Salt);
                     Console.WriteLine("Password: " + password);
                     Console.WriteLine("Salt: " + Salt);
@@ -132,7 +140,6 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 }
                 set
                 {
-
                     confirmPassword = value;
                     Console.WriteLine(confirmPassword);
                 }
@@ -163,7 +170,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
             }
 
             //https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rsacryptoserviceprovider?view=net-5.0
-            private static byte[] GetHash(string input)
+            private static byte[] GetHash(string input) //input = Password + salt
             {
                 try
                 {
@@ -182,9 +189,11 @@ namespace ShopBot.Areas.Identity.Pages.Account
                         //Pass the data to ENCRYPT, the public key information 
                         //(using RSACryptoServiceProvider.ExportParameters(false),
                         //and a boolean flag specifying no OAEP padding.
-                        encryptedData = RSAEncrypt(dataToEncrypt, RSA.ExportParameters(false), false);
+                        Console.WriteLine("Register Encryption:");
+                        encryptedData = RSAEncrypt(dataToEncrypt, publicKey, false);
                         //https://stackoverflow.com/questions/1003275/how-to-convert-utf-8-byte-to-string
                         //string encryptedString = Encoding.UTF8.GetString(encryptedData);
+                        //Console.WriteLine("Encrypted String: " + encryptedString);
                         //return encryptedString;
                         return encryptedData;
                     }

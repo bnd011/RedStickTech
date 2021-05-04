@@ -5,6 +5,7 @@ using ShopBot.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Security.Cryptography;
 using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
@@ -31,9 +32,22 @@ namespace ShopBot.Controllers
             }
         }
 
+        public static RSAParameters publicKey;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            GenerateKeys();
+        }
+
+        //https://www.youtube.com/watch?v=EA5jF_7FteM
+        private static void GenerateKeys()
+        {
+            using (var rsa = new RSACryptoServiceProvider(2048))
+            {
+                Console.WriteLine("GenerateKeys Stub");
+                rsa.PersistKeyInCsp = false; //don't store keys in a container
+                publicKey = rsa.ExportParameters(false);
+            }
         }
 
         public IActionResult Index()

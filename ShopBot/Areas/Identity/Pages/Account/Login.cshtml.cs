@@ -45,6 +45,10 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            public InputModel()
+            {
+                publicKey = Controllers.HomeController.publicKey;
+            }
             private string[] Qreturn { get; set; }
 
             [Required]
@@ -67,7 +71,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 }
             }
             protected internal String Strhash2 { get; set; }
-             protected internal byte[] Bhash2 { get; set; }
+            protected internal byte[] Bhash2 { get; set; }
             public byte[] Hash2
             {
                 get
@@ -80,51 +84,58 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     Strhash2 = Convert.ToBase64String(value);
                 }
             }
+
+            public static RSAParameters publicKey;
+
+            //private static RSAParameters test;
             private string Verify { get; set; }
             private string Salt { get; set; }
 
             private string password;
             [Required]
             [DataType(DataType.Password)]
-            public string Password {
+            public string Password
+            {
                 get
                 {
                     return password;
                 }
-                set 
+                set
                 {
                     //ShopBot.Controllers.HomeController.ViewBag.account = Email;
-                    Controllers.HomeController.passEmail(Email);
                     Qreturn = GetQReturn();
                     //Console.WriteLine("Q: " + Qreturn);
                     Verify = Qreturn[1];
                     Salt = Qreturn[2];
                     password = value;
+                    GenerateKeys();
+                    //publicKey = Controllers.HomeController.publicKey;
                     Hash = GetHash(password + Salt);
                     Hash2 = GetHash(password + Salt);
                     Console.WriteLine("Password: " + password);
                     Console.WriteLine("Salt: " + Salt);
                     Console.WriteLine("Verify: " + Verify);
                     Console.WriteLine("Hash: " + Strhash);
-                    Console.WriteLine("Hash: " + Strhash2);
+                    Console.WriteLine("Hash 2: " + Strhash2);
                     if (Strhash == Verify)
                     {
                         Console.WriteLine("Hash Matches Verify");
+                        Controllers.HomeController.passEmail(Email);
                     }
                     else
                     {
                         Console.WriteLine("Hash Does Not Match Verify");
                         FailedLogin();
                     }
-                } 
+                }
             }
 
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
 
-            private string [] GetQReturn()
+            private string[] GetQReturn()
             {
-                string[] output = { "null", "null", "null"};
+                string[] output = { "null", "null", "null" };
                 string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
                 MySqlConnection connect = new MySqlConnection(ConnectionStr);
                 MySqlCommand login = connect.CreateCommand();
@@ -159,7 +170,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                         Console.WriteLine("Invalid Email Address");
                         return output;
                     }
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -194,7 +205,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                             string last_time = (string)connection.GetValue(2);
                             connect.Close();
                             MySqlConnection connect2 = new MySqlConnection(ConnectionStr);
-                            MySqlCommand login2 = connect2.CreateCommand(); 
+                            MySqlCommand login2 = connect2.CreateCommand();
                             login2.CommandText = GetFailedLoginModifyQuery(prevFail);
                             connect2.Open();
                             Console.WriteLine("Last Login Failure on: ", last_time);
@@ -223,7 +234,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
 
             private string GetLoginDetailsQueary()
             {
-                String queary = "SELECT * FROM `RST_DB`.`user_login_info` WHERE `user_email` = '" + Email +"';";
+                String queary = "SELECT * FROM `RST_DB`.`user_login_info` WHERE `user_email` = '" + Email + "';";
                 return queary;
             }
 
@@ -243,12 +254,13 @@ namespace ShopBot.Areas.Identity.Pages.Account
             private string GetFailedLoginNewQuery()
             {
                 DateTime now = DateTime.Now;
-                String queary = "INSERT INTO `RST_DB`.`failed_login`(`user_email`, `failed_num`, `time_of_try`) VALUES('" + Email + "', '1', '" + now +"');";
+                String queary = "INSERT INTO `RST_DB`.`failed_login`(`user_email`, `failed_num`, `time_of_try`) VALUES('" + Email + "', '1', '" + now + "');";
                 return queary;
             }
 
 
             //https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rsacryptoserviceprovider?view=net-5.0
+            //https://www.youtube.com/watch?v=EA5jF_7FteM
             private static byte[] GetHash(string input)
             {
                 try
@@ -259,19 +271,35 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     //Create byte arrays to hold original, encrypted, and decrypted data.
                     byte[] dataToEncrypt = ByteConverter.GetBytes(input);
                     byte[] encryptedData;
+                    byte[] encryptedData2;
 
                     //Create a new instance of RSACryptoServiceProvider to generate
                     //public and private key data.
                     using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
                     {
+                        /*
+                        RSAParameters myRSAParameters = RSA.ExportParameters(false);
+                        myRSAParameters.Modulus = publicKey.Modulus;
+                        myRSAParameters.Exponent = ByteConverter.GetBytes("65537");
+                        myRSAParameters.D = publicKey.D;
+                        */
 
                         //Pass the data to ENCRYPT, the public key information 
                         //(using RSACryptoServiceProvider.ExportParameters(false),
                         //and a boolean flag specifying no OAEP padding.
-                        encryptedData = RSAEncrypt(dataToEncrypt, RSA.ExportParameters(false), false);
-                        //https://stackoverflow.com/questions/1003275/how-to-convert-utf-8-byte-to-string
+                        Console.WriteLine("Login Encryption:");
+                        Console.WriteLine("Input: " + input);
+                        Console.WriteLine("Public Key Modulus: " + Convert.ToBase64String(publicKey.Modulus));
+                        //Console.WriteLine("Public Key D" + publicKey.D.ToString());
+                        encryptedData = RSAEncrypt(dataToEncrypt, publicKey, false); //return\
+                        encryptedData2 = RSAEncrypt(dataToEncrypt, publicKey, false); //return
+
+                        //encryptedData = RSAEncrypt(dataToEncrypt, myRSAParameters, false); //return\
+                        //encryptedData2 = RSAEncrypt(dataToEncrypt, myRSAParameters, false); //return
+                        Console.WriteLine("E1: " + Convert.ToBase64String(encryptedData));
+                        Console.WriteLine("E2: " + Convert.ToBase64String(encryptedData2));
                         //string encryptedString = Encoding.UTF8.GetString(encryptedData);
-                        //return encryptedString;
+                        //Console.WriteLine("Encrypted String: " + encryptedString);
                         return encryptedData;
                     }
                 }
@@ -284,35 +312,52 @@ namespace ShopBot.Areas.Identity.Pages.Account
                     return ByteConverter.GetBytes("default");
                 }
             }
-        }
 
-        public static byte[] RSAEncrypt(byte[] DataToEncrypt, RSAParameters RSAKeyInfo, bool DoOAEPPadding)
-        {
-            try
+
+            public static byte[] RSAEncrypt(byte[] DataToEncrypt, RSAParameters RSAKeyInfo, bool DoOAEPPadding)
             {
-                byte[] encryptedData;
-                //Create a new instance of RSACryptoServiceProvider.
-                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                try
                 {
+                    byte[] encryptedData;
+                    //Create a new instance of RSACryptoServiceProvider.
+                    using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                    {
 
-                    //Import the RSA Key information. This only needs
-                    //toinclude the public key information.
-                    RSA.ImportParameters(RSAKeyInfo);
+                        //Import the RSA Key information. This only needs
+                        //toinclude the public key information.
+                        RSA.ImportParameters(RSAKeyInfo);
 
-                    //Encrypt the passed byte array and specify OAEP padding.  
-                    //OAEP padding is only available on Microsoft Windows XP or
-                    //later.  
-                    encryptedData = RSA.Encrypt(DataToEncrypt, DoOAEPPadding);
+                        //Encrypt the passed byte array and specify OAEP padding.  
+                        //OAEP padding is only available on Microsoft Windows XP or
+                        //later.  
+                        encryptedData = RSA.Encrypt(DataToEncrypt, DoOAEPPadding);
+                    }
+                    return encryptedData;
                 }
-                return encryptedData;
-            }
-            //Catch and display a CryptographicException  
-            //to the console.
-            catch (CryptographicException e)
-            {
-                Console.WriteLine(e.Message);
+                //Catch and display a CryptographicException  
+                //to the console.
+                catch (CryptographicException e)
+                {
+                    Console.WriteLine(e.Message);
 
-                return null;
+                    return null;
+                }
+            }
+
+            //https://www.youtube.com/watch?v=EA5jF_7FteM
+            private static void GenerateKeys()
+            {
+                UnicodeEncoding ByteConverter = new UnicodeEncoding();
+                using (var rsa = new RSACryptoServiceProvider(2048))
+                {
+                    rsa.PersistKeyInCsp = false; //don't store keys in a container
+                    publicKey = rsa.ExportParameters(false);
+                    RSAParameters privateKey = rsa.ExportParameters(true);
+                    //publicKey.Modulus = Convert.FromBase64String("utDXrcbgXmFJ1uJobk5xrkgUD9gaQetZTPADKDFLOOsEXtpChftLSdJn80Ovc3T1DHmljpzxcGAbjibJVV7QGHgUVrp0XEb0fRTNtHamm7nJQrZmRfmGVpCVMwQ8sWPLGaM2FTCCRgWmnrW151kESimzj5MQqL0JGfpnNh9zhkCWihKtjRyilkSBwUJ+RODDwqGFE8gaGAgxyKG4Tm5GIfYnOW54DPZNHq5ZHPmWTp2LV6cbuNAkMBVLtShMlwLfmOFgYOhBwSefW7CEn7r5pU9esqAR9rCla+1xXrJ6hWLWqRcBviSlk47jbGxbDcmziyNNK4HY0DVCQ");
+                    //publicKey.Exponent = ByteConverter.GetBytes("65537");
+                    //publicKey.D = privateKey.D;
+
+                }
             }
         }
 
