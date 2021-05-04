@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "j2xNKyFdCtZqsb9aCHbUJn7y3gxUK8OD38zvtCh2NlcwdkmWm8scgMzKxIeR3unnYnctWEDBba+5JXmhi39TaA==",
+=======
+  "dgSpecHash": "f/wsV8SrTIKBjHym8y5PnHH/ec/OdfBUU3N4zJ+qKJPVURzCxqiVpPmg7RzAZ9q8Nk5/ZEOV2BURsbvSLANUGg==",
+>>>>>>> GetSchedule
   "success": true,
   "projectFilePath": "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\ShopBot.csproj",
   "expectedPackageFiles": [

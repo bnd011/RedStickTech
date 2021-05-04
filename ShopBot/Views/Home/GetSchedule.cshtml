@@ -1,0 +1,24 @@
+﻿@model ShopBot.Views.Home.GetScheduleModel
+@{
+	ViewBag.Title = "View Schedules";
+	
+}
+<h1>@ViewBag.Title</h1>
+
+<section>
+    <form id="account" asp-Action="GetSchedules" method="post">
+        <div class="form-group">
+            <label asp-for="@Model.Output.UserName"></label>
+            <input asp-for="@Model.Output.UserName" name="UserName" class="form-control" />
+            <span asp-validation-for="@Model.Output.UserName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</section>
+
+<h1>Schedules</h1>
+<section>
+    @Html.Raw(@ViewBag.scheduleMessage)
+</section>
