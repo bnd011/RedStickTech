@@ -96,6 +96,14 @@ namespace ShopBot.Controllers
 
         public IActionResult MakeSchedule()
         {
+            if (accuout != null)
+            {
+                ViewBag.MSmessage = "<h2> " + Account + "</h2>";
+            }
+            else
+            {
+                ViewBag.MSmessage = "<h2> Login to make Schedules </h2>";
+            }
             return View();
         }
 
@@ -106,14 +114,14 @@ namespace ShopBot.Controllers
         }
 
         [HttpPost]
-        public ActionResult MakeASchedule(string ItemName, string Date, int Quantity, string URL, string UserName)
+        public ActionResult MakeASchedule(string ItemName, string Date, int Quantity, string URL)
         {
-            Console.WriteLine("Item: " + ItemName + " User name: " + UserName + " Quantity: " + Quantity + " URL: " + URL + " Date: " + Date);
+            Console.WriteLine("Item: " + ItemName + " User name: " + Account + " Quantity: " + Quantity + " URL: " + URL + " Date: " + Date);
             //Console.WriteLine("Must've Worked");
             string ConnectionStr = "Server= rst-db-do-user-8696039-0.b.db.ondigitalocean.com;Port = 25060;Database=RST_DB;Uid=doadmin;Pwd=wwd0oli7w2rplovh;SslMode=Required;";
             MySqlConnection connect = new MySqlConnection(ConnectionStr);
             MySqlCommand makeSchedule = connect.CreateCommand();
-            makeSchedule.CommandText = "insert into RST_DB.schedules (`user_email`,`url`,`item`,`quantity`) values ('" + UserName + "','" + URL + "','" + ItemName + "','" + Quantity + "');";
+            makeSchedule.CommandText = "insert into RST_DB.schedules (`user_email`,`url`,`item`,`quantity`) values ('" + Account + "','" + URL + "','" + ItemName + "','" + Quantity + "');";
             connect.Open();
             try
             {
