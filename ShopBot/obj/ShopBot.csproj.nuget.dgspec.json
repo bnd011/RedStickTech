@@ -1,27 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\ShopBot.csproj": {}
+    "C:\\Users\\mateo\\Desktop\\login\\ShopBot\\ShopBot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\ShopBot.csproj": {
+    "C:\\Users\\mateo\\Desktop\\login\\ShopBot\\ShopBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\ShopBot.csproj",
+        "projectUniqueName": "C:\\Users\\mateo\\Desktop\\login\\ShopBot\\ShopBot.csproj",
         "projectName": "ShopBot",
-        "projectPath": "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\ShopBot.csproj",
-        "packagesPath": "C:\\Users\\Hall\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hall\\Desktop\\405_git\\Salt&Hash\\RedStickTech\\RedStickTech\\ShopBot\\obj\\",
+        "projectPath": "C:\\Users\\mateo\\Desktop\\login\\ShopBot\\ShopBot.csproj",
+        "packagesPath": "C:\\Users\\mateo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mateo\\Desktop\\login\\ShopBot\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Hall\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\mateo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -68,11 +62,13 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.4, )"
             },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
