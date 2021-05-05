@@ -61,6 +61,7 @@ namespace WalmartAutomation
                     }
                 }
                 //await walmartautomation.walmartCheckoutAsync();
+                //await walmartautomation.AmazonCheckoutAsync();
                 connect.Close();
             }
             catch (Exception ex)

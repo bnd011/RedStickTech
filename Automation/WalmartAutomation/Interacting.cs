@@ -52,7 +52,7 @@ namespace WalmartAutomation
                 if (Ammount > 1)
                 {
                     await Task.Delay(2000);
-                    var input2 = webDriver.FindElement(By.XPath("//a[@aria-label='View details 1 of Great Value Artisan Crafted Cheeseburger, 12.8 oz']|//input[@data-automation-id = 'quantityInput']"));
+                    var input2 = webDriver.FindElement(By.XPath("//a[@aria-label=" + "\"" + "View details " + Item + "\"]|//input[@data-automation-id = 'quantityInput']"));
                     input2.SendKeys(Keys.Backspace);
                     input2.Click();
                     input2.SendKeys(Ammount.ToString());

@@ -61,4 +61,3 @@ C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\MySql.Data.xml
 C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\WebDriver.xml
 C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\WebDriver.Support.xml
 C:\Users\owens\Desktop\RedStickTech\AutomationApp\obj\Debug\AutomationApp.csproj.CopyComplete
-C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\MySql.Data.dll
