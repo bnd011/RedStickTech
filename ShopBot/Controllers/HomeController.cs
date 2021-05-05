@@ -36,7 +36,7 @@ namespace ShopBot.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            GenerateKeys();
+            //GenerateKeys();
         }
 
         //https://www.youtube.com/watch?v=EA5jF_7FteM

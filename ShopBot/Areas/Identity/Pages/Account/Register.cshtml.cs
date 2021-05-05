@@ -82,7 +82,7 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 set
                 {
                     Bhash = value;
-                    Strhash = Convert.ToBase64String(value);
+                    Strhash = Convert.ToBase64String(value).Trim(new char[] {' ', '=' });
                 }
             }
 
@@ -103,7 +103,15 @@ namespace ShopBot.Areas.Identity.Pages.Account
                 {
                     password = value;
                     Salt = GetSalt();
-                    publicKey = Controllers.HomeController.publicKey;
+                    if (LoginModel.InputModel.KeyExists)
+                    {
+                        publicKey = LoginModel.InputModel.publicKey;
+                    }
+                    else
+                    {
+                        LoginModel.InputModel.GenerateKeys();
+                        publicKey = LoginModel.InputModel.publicKey;
+                    }
                     Hash = GetHash(password + Salt);
                     Console.WriteLine("Password: " + password);
                     Console.WriteLine("Salt: " + Salt);
