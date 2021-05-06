@@ -42,6 +42,7 @@ C:\Users\owens\Desktop\RedStickTech\AutomationApp\obj\Debug\AutomationApp.pdb
 C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\AutomationApp.exe.config
 C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\AutomationApp.exe
 C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\AutomationApp.pdb
+C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\MySql.Data.dll
 C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\SeleniumExtras.WaitHelpers.dll
 C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\WebDriver.dll
 C:\Users\owens\Desktop\RedStickTech\AutomationApp\bin\Debug\WebDriver.Support.dll

@@ -26,19 +26,19 @@ namespace AutomationApp
             MySqlConnection connect = new MySqlConnection(ConnectionStr);
             MySqlCommand check = connect.CreateCommand();
             check.Parameters.AddWithValue("@email", emailtxtbox.Text);
-            check.CommandText = "SELECT COUNT(*) FROM RST_DB.schedules where user_email= @email";
+            check.CommandText = "SELECT COUNT(*) FROM RST_DB.login where user_email= @email";
             connect.Open();
             int results = (int)(long)check.ExecuteScalar();
             if (results > 0)
             {
                 this.Close();
-                connect.Close();
                 Process.Start(@"C:\Users\owens\Desktop\RedStickTech\Automation\WalmartAutomation\bin\Debug\net5.0\WalmartAutomation.exe", email);
             }
             else
             {
                 MessageBox.Show("you are not in the database.");
             }
+            connect.Close();
 
         }
     }

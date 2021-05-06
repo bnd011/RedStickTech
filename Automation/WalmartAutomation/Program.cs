@@ -19,50 +19,21 @@ namespace WalmartAutomation
                 string email = args[0];
                 MySqlConnection connect = new MySqlConnection(ConnectionStr);
                 MySqlCommand count = connect.CreateCommand();
-                count.Parameters.AddWithValue("@email", email);
-                count.CommandText = "SELECT COUNT(*) FROM RST_DB.schedules WHERE user_email = @email";
-
-                MySqlCommand firsturl = connect.CreateCommand();
-                firsturl.Parameters.AddWithValue("@email", email);
-                firsturl.CommandText = "SELECT url FROM RST_DB.schedules WHERE user_email = @email LIMIT 1;";
-
-
-                MySqlCommand firstitem = connect.CreateCommand();
-                firstitem.Parameters.AddWithValue("@email", email);
-                firstitem.CommandText = "SELECT item  FROM RST_DB.schedules WHERE user_email = @email LIMIT 1;";
-
-                MySqlCommand quantity = connect.CreateCommand();
-                quantity.Parameters.AddWithValue("@email", email);
-                quantity.CommandText = "SELECT quantity  FROM RST_DB.schedules WHERE user_email = @email LIMIT 1;";
-
+                count.CommandText = "SELECT COUNT(*) FROM RST_DB.schedules";
+                MySqlCommand first = connect.CreateCommand();
+                first.Parameters.AddWithValue("@email", email);
+                first.CommandText = "SELECT item  FROM RST_DB.schedules WHERE user_email = @email LIMIT 1;";
                 connect.Open();
-                await walmartautomation.FindItemAsync((string)firstitem.ExecuteScalar(), (string)firsturl.ExecuteScalar(), (int)quantity.ExecuteScalar());
-                if(n != (Int64)count.ExecuteScalar())
+                await walmartautomation.FindItemAsync((string)first.ExecuteScalar());
+                while (n < (Int64)count.ExecuteScalar())
                 {
-                    while (n < (Int64)count.ExecuteScalar())
-                    {
-                        MySqlCommand loopurl = connect.CreateCommand();
-                        loopurl.Parameters.AddWithValue("@email", email);
-                        loopurl.Parameters.AddWithValue("@num", n);
-                        loopurl.CommandText = "SELECT url FROM RST_DB.schedules WHERE user_email = @email LIMIT @num,1";
-
-                        MySqlCommand loopitem = connect.CreateCommand();
-                        loopitem.Parameters.AddWithValue("@email", email);
-                        loopitem.Parameters.AddWithValue("@num", n);
-                        loopitem.CommandText = "SELECT item FROM RST_DB.schedules WHERE user_email = @email LIMIT @num,1;";
-
-                        MySqlCommand loopquantitty = connect.CreateCommand();
-                        loopquantitty.Parameters.AddWithValue("@email", email);
-                        loopquantitty.Parameters.AddWithValue("@num", n);
-                        loopquantitty.CommandText = "SELECT quantity FROM RST_DB.schedules WHERE user_email = @email LIMIT @num,1;";
-
-                        await walmartautomation.FindItemAsync((string)loopitem.ExecuteScalar(), (string)loopurl.ExecuteScalar(), (int)quantity.ExecuteScalar());
-                        n = n + 1;
-                    }
+                    MySqlCommand loop = connect.CreateCommand();
+                    loop.Parameters.AddWithValue("@email", email);
+                    loop.Parameters.AddWithValue("@num", n);
+                    loop.CommandText = "SELECT item  FROM RST_DB.schedules WHERE user_email = @email LIMIT @num,1;";
+                    await walmartautomation.FindItemAsync((string)loop.ExecuteScalar());
+                    n = n + 1;
                 }
-                //await walmartautomation.walmartCheckoutAsync();
-                //await walmartautomation.AmazonCheckoutAsync();
-                connect.Close();
             }
             catch (Exception ex)
             {
